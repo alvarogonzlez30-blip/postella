@@ -559,6 +559,51 @@ footer{padding-top:80px}
  .item:nth-child(1) .collection-photo,.item:nth-child(2) .stationery-stilllife,.item:nth-child(3) .gift-stilllife,.hero h1 em{animation:none!important}
 }
 
+
+/* LAST DETAILS — editorial copy, postcard reverse and CTA proportions */
+.hero .eyebrow,.hero .button{display:none!important}
+.hero-postmark{font-size:9px;line-height:1.45;letter-spacing:.13em;text-transform:lowercase}
+.scroll-postcard{transform-style:preserve-3d;-webkit-transform-style:preserve-3d}
+.scroll-postcard-front,.scroll-postcard-back{
+  backface-visibility:hidden;-webkit-backface-visibility:hidden;
+  transform-style:preserve-3d;-webkit-transform-style:preserve-3d;
+}
+.scroll-postcard-front{transform:rotateY(0deg) translateZ(1px);-webkit-transform:rotateY(0deg) translateZ(1px)}
+.scroll-postcard-back{transform:rotateY(180deg) translateZ(1px);-webkit-transform:rotateY(180deg) translateZ(1px);
+  padding:clamp(17px,2vw,25px);background:#fffaf4;display:flex;flex-direction:column;justify-content:space-between}
+.back-topline,.back-bottomline{display:flex;justify-content:space-between;align-items:center;gap:8px;color:#ad8875;font-size:7px;letter-spacing:.13em;text-transform:uppercase}
+.back-topline span:first-child{font:italic 17px var(--serif);text-transform:lowercase;letter-spacing:0;color:#49372f}
+.back-layout{display:grid;grid-template-columns:1.15fr .85fr;gap:13px;flex:1;align-items:center;padding:15px 0}
+.back-message{display:flex;flex-direction:column;gap:13px}
+.back-greeting{font-size:7px;letter-spacing:.12em;text-transform:uppercase;color:#ad8875}
+.back-message p{font:italic clamp(24px,3vw,36px)/.98 var(--serif);color:#49372f;margin:0}
+.back-message p em{color:#ad8875}
+.back-writing{display:grid;gap:12px;margin-top:8px}
+.back-writing i,.back-address i{display:block;height:1px;background:#ad887566}
+.back-address{height:100%;border-left:1px solid #ad887544;padding-left:12px;display:flex;flex-direction:column;justify-content:center;gap:12px}
+.back-address b{font-size:7px;letter-spacing:.15em;color:#ad8875}
+.back-address small{font-size:6px;letter-spacing:.1em;color:#ad8875;margin-top:auto}
+.back-stamp{align-self:flex-end;width:38px;height:44px;border:1px dashed #ad8875;display:grid;place-items:center;font-size:20px;transform:rotate(5deg);background:#f8eee8}
+.back-bottomline{border-top:1px solid #ad887544;padding-top:9px;font-size:6px}
+.finale-overline{max-width:620px;margin:22px auto 28px;line-height:1.6}
+.finale-button{padding:14px 19px;gap:24px;font-size:9px}
+.finale-button b{font-size:17px}
+@media(max-width:760px){
+ .hero .eyebrow,.hero .button{display:none!important}
+ .hero .reveal{padding-top:12px}
+ .hero-postmark{font-size:8px;padding:8px 10px}
+ .scroll-postcard-front,.scroll-postcard-back{padding:19px}
+ .back-layout{gap:9px;padding:12px 0}
+ .back-address{padding-left:8px;gap:10px}
+ .back-message p{font-size:clamp(23px,6vw,32px)}
+ .back-topline span:first-child{font-size:15px}
+ .back-bottomline{font-size:5px;letter-spacing:.08em}
+ .visit-eyebrow{max-width:320px;margin:0 auto 18px;font-size:9px;line-height:1.6;letter-spacing:.16em}
+ .finale-overline{max-width:310px;margin:0 auto 25px;font-size:9px;line-height:1.65;letter-spacing:.15em}
+ .finale-button{padding:12px 15px;gap:18px;font-size:8px}
+ .finale-button b{font-size:16px}
+}
+
 </style>
 </head>
 <body>
@@ -566,14 +611,14 @@ footer{padding-top:80px}
 <div class="announcement ticker-announcement"><div class="announcement-track"><span>Rellena el formulario y consigue un descuento exclusivo en nuestra apertura 💌</span><span>Rellena el formulario y consigue un descuento exclusivo en nuestra apertura 💌</span></div></div>
 <header><nav class="nav"><a class="logo" href="#inicio" aria-label="Postella, inicio"><img src="postella-logo.png" alt="postella"></a><button class="menu" aria-label="Abrir menú">☰</button><div class="links"><a href="#colecciones">colecciones</a><a href="#historia">sobre postella</a><a href="#visitanos">visítanos</a><a href="#formulario">formulario</a><a href="mailto:hi@postellapaper.com">contacto ↗</a></div></nav></header>
 <main>
-<section class="hero" id="inicio"><div class="reveal"><div class="eyebrow">madrid · paper goods</div><h1>no todo cabe<br><em>en un mensaje.</em></h1><a class="button" href="#colecciones">explorar <span>↓</span></a></div>
+<section class="hero" id="inicio"><div class="reveal"><h1>no todo cabe<br><em>en un mensaje.</em></h1></div>
 <div class="art reveal" data-parallax>
   <div class="art-index">postella · madrid <span>💌</span></div>
   <div class="orb"></div>
   <div class="postcard-photo photo-one"><img src="postal-madrid-01.jpg" alt="Postal ilustrada de Madrid con la Puerta de Alcalá"></div>
   <div class="postcard-photo photo-two"><img src="postal-madrid-02.jpg" alt="Postal ilustrada de Madrid y el Palacio de Cibeles"></div>
   <img class="hero-mascot" src="mascota-postella.png" alt="" aria-hidden="true">
-  <div class="hero-postmark">UN SALUDO<br>DESDE MADRID</div>
+  <div class="hero-postmark">postella est.<br>2026</div>
   <div class="hero-scroll">SCROLL TO EXPLORE <span>↓</span></div>
 </div></section>
 
@@ -624,10 +669,20 @@ footer{padding-top:80px}
           <small>UNA POSTAL, UN RECUERDO</small>
         </div>
         <div class="scroll-postcard-back">
-          <div class="back-lines"></div>
-          <span class="back-stamp">💌</span>
-          <p>Hay mensajes<br>que merecen<br><em>llegar lejos.</em></p>
-          <small>CON CARIÑO, postella</small>
+          <div class="back-topline"><span>postella</span><span>EST. 2026</span></div>
+          <div class="back-layout">
+            <div class="back-message">
+              <span class="back-greeting">un pensamiento para ti</span>
+              <p>Wish you were<br><em>here.</em></p>
+              <div class="back-writing"><i></i><i></i><i></i></div>
+            </div>
+            <div class="back-address">
+              <span class="back-stamp">💌</span>
+              <b>PARA:</b><i></i><i></i><i></i><i></i>
+              <small>CON CARIÑO, postella</small>
+            </div>
+          </div>
+          <div class="back-bottomline"><span>DE MADRID AL MUNDO</span><span>✦</span><span>UNA POSTAL, UN RECUERDO</span></div>
         </div>
       </div>
       <div class="scene-caption scene-caption-left">01 — UNA IDEA</div>
@@ -656,8 +711,8 @@ footer{padding-top:80px}
     <span class="finale-stamp">MADRID<br>POSTAL CLUB</span>
   </div>
   <div class="finale-inner">
-    <div class="visit-eyebrow">madrid · próximamente</div>
-    <div class="finale-overline">una tienda llena de pequeñas historias</div>
+    <div class="visit-eyebrow">estamos preparando nuestro rinconcito en madrid</div>
+    <div class="finale-overline">muy pronto podrás descubrir postella en persona</div>
     <h2>come say<br><em>hello.</em></h2>
     <p>te guardamos un sitio.</p>
     <a class="finale-button" href="https://www.instagram.com/postellapaper/" target="_blank" rel="noreferrer">
