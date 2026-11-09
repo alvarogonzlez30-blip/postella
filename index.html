@@ -760,6 +760,43 @@ footer{padding-top:80px}
 @media(max-width:760px){.postella-intro{min-height:100svh}.intro-envelope{width:min(72vw,280px)}.intro-skip{right:14px;bottom:12px}.postella-cursor{display:none!important}}
 @media(prefers-reduced-motion:reduce){.postella-intro *,.intro-envelope,.intro-letter,.intro-flap,.intro-seal,.intro-wordmark,.intro-caption{animation:none!important}.postella-intro{transition:none}.postella-cursor{display:none!important}.postcard-photo:after{display:none}}
 
+
+/* Personaliza tu postal · primera experiencia interactiva */
+.customizer{padding:110px 7vw;background:#f5efeb;position:relative;overflow:hidden}
+.customizer:before{content:"";position:absolute;width:360px;height:360px;border-radius:50%;background:#f2b0be55;right:-150px;top:70px;pointer-events:none}
+.customizer-wrap{max-width:1250px;margin:auto;position:relative;z-index:1}
+.customizer-heading{max-width:760px;margin:0 auto 55px;text-align:center}
+.customizer-heading h2{font:600 clamp(46px,6vw,78px)/.98 var(--serif);letter-spacing:-.06em;margin:16px 0}
+.customizer-heading h2 em{color:var(--brown)}
+.customizer-heading p{max-width:480px;margin:0 auto;color:#806e63;font-size:13px;line-height:1.9}
+.customizer-layout{display:grid;grid-template-columns:.9fr 1.1fr;gap:7vw;align-items:center}
+.customizer-controls{background:#fffdfb;padding:34px;box-shadow:0 18px 55px #49372f0c}
+.customizer-label{font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--brown);margin-bottom:14px;display:block}
+.design-options{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:30px}
+.design-option{border:1px solid #e5d8d0;background:#fffdfb;padding:9px;text-align:left;color:var(--ink);font:inherit;cursor:pointer;transition:.25s}
+.design-option[aria-pressed="true"]{border:1px solid var(--brown);background:#f8efeb;box-shadow:inset 0 0 0 1px var(--brown)}
+.design-thumb{height:92px;display:grid;place-items:center;overflow:hidden;background:#ead8cf;margin-bottom:8px}
+.design-thumb img{width:100%;height:100%;object-fit:cover}
+.design-thumb.type{background:#f4e6e2;color:var(--brown);font:italic 25px var(--serif);text-align:center;line-height:1.05}
+.design-option small{font-size:9px;letter-spacing:.08em;text-transform:uppercase}
+.customizer textarea{width:100%;min-height:112px;resize:vertical;border:1px solid #e5d8d0;background:#fffdfb;padding:14px;color:var(--ink);font:13px/1.7 var(--sans);outline:none}
+.customizer textarea:focus{border-color:var(--brown)}
+.customizer-hint{font-size:10px;color:#9b877b;line-height:1.6;margin-top:9px}
+.customizer-preview-wrap{display:grid;place-items:center;min-height:410px;perspective:1100px}
+.customizer-preview{width:min(100%,430px);aspect-ratio:1.48;background:#fffdfb;padding:13px;box-shadow:0 30px 65px #49372f25;transform:rotateY(-8deg) rotateZ(2deg);transition:transform .6s cubic-bezier(.2,.8,.2,1),box-shadow .6s;position:relative}
+.customizer-preview:hover{transform:rotateY(0) rotateZ(0) translateY(-7px);box-shadow:0 38px 75px #49372f30}
+.preview-inner{height:100%;border:1px solid #e8d8d0;display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.preview-art{position:relative;overflow:hidden;background:#ead8cf}
+.preview-art img{width:100%;height:100%;object-fit:cover;display:block}
+.preview-art.typographic{display:grid;place-items:center;text-align:center;padding:18px;background:#f4e6e2;color:var(--brown);font:italic clamp(25px,3vw,38px)/1.05 var(--serif)}
+.preview-copy{padding:18px 14px;display:flex;flex-direction:column;justify-content:space-between;min-width:0}
+.preview-stamp{align-self:flex-end;border:1px solid var(--brown);padding:6px 8px;color:var(--brown);font-size:7px;letter-spacing:.12em}
+.preview-message{font:italic clamp(14px,2vw,20px)/1.35 var(--serif);color:var(--brown);overflow-wrap:anywhere;white-space:pre-wrap}
+.preview-lines{display:grid;gap:10px}.preview-lines i{height:1px;background:#d8c9bf;display:block}
+.preview-footer{font-size:7px;letter-spacing:.15em;color:#a28b7e;text-transform:uppercase}
+.customizer-bottom{margin-top:24px;text-align:center;color:#8d796e;font-size:10px;letter-spacing:.08em}
+@media(max-width:760px){.customizer{padding:78px 7vw}.customizer-heading{margin-bottom:35px}.customizer-layout{grid-template-columns:1fr;gap:30px}.customizer-controls{padding:22px}.customizer-preview-wrap{min-height:280px}.customizer-preview{width:100%;transform:rotateZ(1deg)}.preview-copy{padding:12px 9px}.preview-message{font-size:14px}}
+
 </style>
 </head>
 <body>
@@ -768,19 +805,16 @@ footer{padding-top:80px}
   <div class="intro-content">
     <div class="intro-envelope" aria-hidden="true">
       <div class="intro-envelope-back"></div>
-      <div class="intro-letter"><img src="postella-logo.png" alt=""><small>de madrid al mundo, tus postales</small></div>
+      <div class="intro-letter" aria-hidden="true"></div>
       <div class="intro-flap"></div><div class="intro-envelope-front"></div><div class="intro-seal">💌</div>
     </div>
-    <div class="intro-wordmark">postella</div>
-    <div class="intro-caption">small things, big memories</div>
   </div>
-  <button class="intro-skip" id="introSkip" type="button">entrar ahora ↗</button>
 </div>
 <div class="postella-cursor" aria-hidden="true"></div>
 
 <div class="scroll-progress" aria-hidden="true"><span></span></div>
 <div class="announcement ticker-announcement"><div class="announcement-track"><span>Rellena el formulario y consigue un descuento exclusivo en nuestra apertura 💌</span><span>Rellena el formulario y consigue un descuento exclusivo en nuestra apertura 💌</span></div></div>
-<header><nav class="nav"><a class="logo" href="#inicio" aria-label="Postella, inicio"><img src="postella-logo.png" alt="postella"></a><button class="menu" aria-label="Abrir menú">☰</button><div class="links"><a href="#colecciones">colecciones</a><a href="#historia">sobre postella</a><a href="#visitanos">visítanos</a><a href="#formulario">formulario</a><a href="mailto:hi@postellapaper.com">contacto ↗</a></div></nav></header>
+<header><nav class="nav"><a class="logo" href="#inicio" aria-label="Postella, inicio"><img src="postella-logo.png" alt="postella"></a><button class="menu" aria-label="Abrir menú">☰</button><div class="links"><a href="#colecciones">colecciones</a><a href="#personaliza">personaliza tu postal</a><a href="#historia">sobre postella</a><a href="#visitanos">visítanos</a><a href="#formulario">formulario</a><a href="mailto:hi@postellapaper.com">contacto ↗</a></div></nav></header>
 <main>
 <section class="hero" id="inicio"><div class="reveal"><h1>no todo cabe<br><em>en un mensaje.</em></h1></div>
 <div class="art reveal" data-parallax>
@@ -821,6 +855,40 @@ footer{padding-top:80px}
 <article class="item reveal"><div class="itemvisual stationery-visual"><span class="item-number">02 / 03</span><div class="stationery-stilllife" aria-hidden="true"><div class="notebook"><span></span><i></i><b></b></div><div class="paper-stack"><i></i><i></i><i></i></div><div class="pencil"></div><div class="paperclip"></div></div><span class="item-scribble">made for your desk</span></div><div class="itemlabel"><h3>Papelería</h3><span>↗</span></div></article>
 <article class="item reveal"><div class="itemvisual gift-visual"><span class="item-number">03 / 03</span><div class="gift-stilllife" aria-hidden="true"><div class="gift-box"><i class="gift-ribbon-v"></i><i class="gift-ribbon-h"></i><i class="gift-bow gift-bow-left"></i><i class="gift-bow gift-bow-right"></i></div><div class="gift-tag">for you<br>with love</div><div class="gift-spark spark-one">💌</div><div class="gift-spark spark-two">💌</div></div><span class="item-scribble">a gift to keep</span></div><div class="itemlabel"><h3>Pequeños regalos</h3><span>↗</span></div></article>
 </div></section>
+
+
+<section class="customizer" id="personaliza">
+  <div class="customizer-wrap">
+    <div class="customizer-heading reveal">
+      <div class="eyebrow">hecha por ti, para alguien especial</div>
+      <h2>personaliza <em>tu postal.</em></h2>
+      <p>elige un diseño, escribe lo que quieras decir y empieza a convertir tus palabras en algo que se pueda guardar.</p>
+    </div>
+    <div class="customizer-layout">
+      <div class="customizer-controls reveal">
+        <span class="customizer-label">01 · elige el diseño</span>
+        <div class="design-options" role="group" aria-label="Diseño de la postal">
+          <button class="design-option" type="button" data-design="madrid" aria-pressed="true"><span class="design-thumb"><img src="postal-madrid-01.jpg" alt=""></span><small>madrid clásico</small></button>
+          <button class="design-option" type="button" data-design="cibeles" aria-pressed="false"><span class="design-thumb"><img src="postal-madrid-02.jpg" alt=""></span><small>un día en madrid</small></button>
+          <button class="design-option" type="button" data-design="words" aria-pressed="false"><span class="design-thumb type">a little<br>note for you</span><small>solo palabras</small></button>
+          <button class="design-option" type="button" data-design="pink" aria-pressed="false"><span class="design-thumb type" style="background:#f2b0be;color:#fff">with<br>love 💌</span><small>pink love</small></button>
+        </div>
+        <label class="customizer-label" for="postcardMessage">02 · escribe tu mensaje</label>
+        <textarea id="postcardMessage" maxlength="180" placeholder="escribe aquí algo bonito...">un pequeño recuerdo para alguien especial.</textarea>
+        <div class="customizer-hint"><span id="messageCount">48</span>/180 caracteres · tu mensaje aparecerá en la vista previa.</div>
+      </div>
+      <div class="customizer-preview-wrap reveal" aria-live="polite">
+        <div class="customizer-preview" id="customizerPreview">
+          <div class="preview-inner">
+            <div class="preview-art" id="previewArt"><img id="previewImage" src="postal-madrid-01.jpg" alt="Vista previa de la ilustración elegida"></div>
+            <div class="preview-copy"><span class="preview-stamp">POSTELLA · 2026</span><div class="preview-message" id="previewMessage">un pequeño recuerdo para alguien especial.</div><div class="preview-lines"><i></i><i></i><i></i></div><span class="preview-footer">de madrid al mundo 💌</span></div>
+          </div>
+        </div>
+        <div class="customizer-bottom">una primera versión · pronto podrás crearla y pedirla</div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <section class="mail-scene" id="una-postal">
@@ -1007,10 +1075,9 @@ if(window.matchMedia('(hover:hover) and (pointer:fine)').matches &&
 /* Immersive interaction layer */
 (()=>{
  const intro=document.getElementById('postellaIntro');
- const skip=document.getElementById('introSkip');
  const finish=()=>{if(!intro||intro.classList.contains('is-leaving'))return;intro.classList.add('is-leaving');setTimeout(()=>intro.remove(),1000)};
  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
- if(intro){if(reduced){finish()}else{const timer=setTimeout(finish,3400);skip?.addEventListener('click',()=>{clearTimeout(timer);finish()},{once:true})}}
+ if(intro){if(reduced){finish()}else{setTimeout(finish,3000)}}
  const cursor=document.querySelector('.postella-cursor');
  if(cursor&&window.matchMedia('(hover:hover) and (pointer:fine)').matches&&!reduced){
   let x=-100,y=-100,tx=-100,ty=-100,raf=0;
@@ -1033,6 +1100,23 @@ if(window.matchMedia('(hover:hover) and (pointer:fine)').matches &&
    surface.addEventListener('pointerleave',()=>{object.style.transform=''});
   });
  }
+ // First step of the postcard customizer: live preview of the selected design and message.
+ const messageInput=document.getElementById('postcardMessage');
+ const previewMessage=document.getElementById('previewMessage');
+ const messageCount=document.getElementById('messageCount');
+ const previewArt=document.getElementById('previewArt');
+ const previewImage=document.getElementById('previewImage');
+ const designButtons=[...document.querySelectorAll('.design-option')];
+ const designs={madrid:{image:'postal-madrid-01.jpg'},cibeles:{image:'postal-madrid-02.jpg'},words:{type:'a little\nnote for you'},pink:{type:'with\nlove 💌'}};
+ function updateMessage(){if(!messageInput||!previewMessage)return;const value=messageInput.value.trim();previewMessage.textContent=value||'tu mensaje aparecerá aquí';if(messageCount)messageCount.textContent=messageInput.value.length}
+ messageInput?.addEventListener('input',updateMessage);updateMessage();
+ designButtons.forEach(button=>button.addEventListener('click',()=>{
+  designButtons.forEach(item=>item.setAttribute('aria-pressed',String(item===button)));
+  const design=designs[button.dataset.design];if(!design||!previewArt)return;
+  if(design.image){previewArt.classList.remove('typographic');previewArt.innerHTML='';const img=document.createElement('img');img.src=design.image;img.alt='Vista previa de la ilustración elegida';previewArt.appendChild(img)}
+  else{previewArt.classList.add('typographic');previewArt.textContent=design.type}
+  const preview=document.getElementById('customizerPreview');if(preview){preview.animate([{transform:'rotateY(-8deg) rotateZ(2deg) scale(.985)',opacity:.7},{transform:'rotateY(-8deg) rotateZ(2deg) scale(1)',opacity:1}],{duration:380,easing:'ease-out'})}
+ }));
 })();
 
 </script>
