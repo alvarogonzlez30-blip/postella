@@ -41,15 +41,28 @@ section.content{padding:105px 7vw}.heading{max-width:1250px;margin:0 auto 42px;d
 .join-copy p{max-width:410px;color:#78665c;font-size:14px;line-height:1.95}
 .join-note{display:flex;align-items:center;gap:12px;margin-top:28px;color:#806e63;font:italic 16px var(--serif)}
 .join-note span{font-size:23px;color:var(--brown);animation:join-heart 2.4s ease-in-out infinite}
-.typeform-shell{position:relative;padding:12px;background:#fffaf6;border:1px solid #fff;border-radius:5px;box-shadow:0 25px 70px #49372f20;transform:rotate(.7deg);transition:transform .6s,box-shadow .6s}
-.typeform-shell:hover{transform:rotate(0) translateY(-5px);box-shadow:0 32px 80px #49372f27}
-.typeform-shell:before{content:"";position:absolute;inset:7px;border:1px solid #ad887533;pointer-events:none;z-index:1}
-.typeform-frame{position:relative;z-index:2;display:block;width:100%;height:590px;border:0;background:#fffdfb;border-radius:2px}
 .join-caption{margin:14px 4px 0;text-align:center;color:#9a8275;font-size:9px;letter-spacing:.16em;text-transform:uppercase}
 @keyframes join-drift{to{transform:translate(25px,22px) scale(1.08)}}
 @keyframes join-heart{50%{transform:scale(1.2) rotate(-8deg)}}
 @media(max-width:850px){.join-section{padding:75px 7vw}.join-wrap{grid-template-columns:1fr;gap:30px}.join-copy{padding:0}.join-copy h2{font-size:clamp(46px,12vw,68px)}.typeform-shell{transform:none}.typeform-frame{height:650px}}
-@media(max-width:480px){.typeform-shell{padding:7px}.typeform-frame{height:680px}}
+
+
+
+.join-cta-card{position:relative;overflow:hidden;min-height:500px;padding:55px 38px 38px;background:#fffaf6;border:1px solid #fff;border-radius:5px;box-shadow:0 25px 70px #49372f20;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center;transform:rotate(.7deg);transition:transform .6s,box-shadow .6s}
+.join-cta-card:hover{transform:rotate(0) translateY(-5px);box-shadow:0 32px 80px #49372f27}
+.join-cta-card:before{content:"";position:absolute;inset:9px;border:1px solid #ad887533;pointer-events:none}
+.join-card-stamp{position:absolute;top:28px;left:28px;padding:8px 10px;border:1px dashed #ad8875;color:#ad8875;font-size:9px;letter-spacing:.15em;transform:rotate(-7deg)}
+.join-card-heart{font:52px/1 var(--serif);color:#f2b0be;margin-bottom:17px;animation:join-heart 2.4s ease-in-out infinite}
+.join-card-overline{margin:0 0 12px;color:#ad8875;font-size:10px;letter-spacing:.2em;text-transform:uppercase}
+.join-cta-card h3{margin:0;color:#46372f;font:600 clamp(43px,4.4vw,62px)/.98 var(--serif);letter-spacing:-.06em}
+.join-cta-card h3 em{color:#ad8875}
+.join-card-text{max-width:330px;margin:20px auto 26px;color:#78665c;font-size:13px;line-height:1.9}
+.join-button{position:relative;z-index:2;display:inline-flex;align-items:center;gap:22px;padding:17px 24px;background:#ad8875;color:#fffaf6;text-decoration:none;text-transform:uppercase;font-size:10px;letter-spacing:.14em;border:1px solid #ad8875;transition:background .3s,color .3s,transform .3s}
+.join-button:hover{background:#f2b0be;color:#46372f;border-color:#f2b0be;transform:translateY(-3px)}
+.join-button span{font-size:16px;transition:transform .3s}
+.join-button:hover span{transform:translate(3px,-3px)}
+.join-card-foot{margin:27px 0 0;color:#9a8275;font:italic 15px var(--serif)}
+@media(max-width:480px){.join-cta-card{min-height:450px;padding:55px 24px 32px}.join-card-stamp{top:23px;left:22px}}
 
 </style>
 </head>
@@ -69,16 +82,20 @@ section.content{padding:105px 7vw}.heading{max-width:1250px;margin:0 auto 42px;d
       <p>Tu opinión nos ayudará a dar forma a este proyecto desde el principio. Porque postella no sería lo mismo sin las personas que hay detrás de cada postal.</p>
       <div class="join-note"><span>♡</span> un pequeño gesto, una gran historia.</div>
     </div>
+    
     <div class="reveal">
-      <div class="typeform-shell">
-        <iframe class="typeform-frame"
-          src="https://page.typeform.com/p/01M705KFP1EMXR85QB427BENS2"
-          title="Forma parte de postella"
-          loading="lazy"
-          allow="camera; microphone; autoplay; encrypted-media;"
-          referrerpolicy="strict-origin-when-cross-origin"></iframe>
+      <div class="join-cta-card">
+        <div class="join-card-stamp">POSTELLA · MADRID</div>
+        <div class="join-card-heart">♡</div>
+        <p class="join-card-overline">queremos conocerte</p>
+        <h3>¿te unes a<br><em>postella?</em></h3>
+        <p class="join-card-text">Dedícanos un par de minutos. Tu opinión nos ayudará a construir este universo desde el principio.</p>
+        <a class="join-button" href="https://page.typeform.com/p/01M705KFP1EMXR85QB427BENS2" target="_blank" rel="noopener noreferrer">
+          quiero formar parte <span aria-hidden="true">↗</span>
+        </a>
+        <p class="join-card-foot">un pequeño gesto, una gran historia.</p>
       </div>
-      <div class="join-caption">gracias por formar parte de postella · de madrid al mundo, tus postales</div>
+      <div class="join-caption">de madrid al mundo, tus postales</div>
     </div>
   </div>
 </section>
