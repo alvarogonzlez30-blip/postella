@@ -133,7 +133,7 @@ header.scrolled{background:#eeeae7f5;box-shadow:0 8px 30px #49372f0c}
 .letter:after{content:"";position:absolute;inset:11px;border:1px solid #ad887533}
 .storyart:hover .letter{transform:rotate(2deg) translateY(-9px)}
 .visit{position:relative;overflow:hidden}
-.visit:before{content:"✳";position:absolute;left:9%;top:17%;font-size:45px;color:#f2b0be;opacity:.7;animation:slow-spin 24s linear infinite}
+.visit:before{content:"💌";position:absolute;left:9%;top:17%;font-size:45px;color:#f2b0be;opacity:.7;animation:slow-spin 24s linear infinite}
 .visit:after{content:"♡";position:absolute;right:10%;bottom:18%;font:60px var(--serif);color:#ad887555;transform:rotate(12deg)}
 footer{position:relative;overflow:hidden}
 footer:before{content:"";position:absolute;top:0;left:7vw;right:7vw;height:1px;background:#ffffff66}
@@ -157,6 +157,52 @@ footer:before{content:"";position:absolute;top:0;left:7vw;right:7vw;height:1px;b
  .visit:after{right:5%;bottom:9%}
 }
 @media(prefers-reduced-motion:reduce){.scroll-progress{display:none}}
+
+
+/* Scroll choreography: the postcard turns as the visitor travels down */
+.mail-scene{height:245vh;position:relative;background:#f5eee6}
+.mail-scene-sticky{height:100vh;min-height:620px;position:sticky;top:0;overflow:hidden;display:grid;grid-template-columns:1fr 1.2fr;align-items:center;padding:7vh 9vw}
+.mail-scene-heading{position:relative;z-index:2;max-width:390px}
+.mail-scene-heading>span{font-size:9px;letter-spacing:.2em;color:#ad8875}
+.mail-scene-heading h2{font:600 clamp(45px,6vw,78px)/.98 var(--serif);letter-spacing:-.06em;margin:22px 0}
+.mail-scene-heading h2 em{color:#ad8875}
+.mail-scene-stage{height:min(76vh,650px);min-height:470px;position:relative;display:grid;place-items:center;perspective:1300px}
+.mail-orbit{position:absolute;width:min(34vw,420px);aspect-ratio:1;border:1px solid #ad88754a;border-radius:50%}
+.mail-orbit-one{transform:rotate(-19deg) scaleY(.55)}
+.mail-orbit-two{transform:rotate(58deg) scaleY(.55);width:min(42vw,520px)}
+.scroll-postcard{width:clamp(210px,25vw,330px);aspect-ratio:.72;position:relative;transform-style:preserve-3d;will-change:transform;z-index:2}
+.scroll-postcard-front,.scroll-postcard-back{position:absolute;inset:0;backface-visibility:hidden;background:#fffdf9;border:1px solid #e8dcd2;box-shadow:0 30px 80px #49372f24;padding:22px;display:flex;flex-direction:column;justify-content:space-between}
+.scroll-postcard-front:after,.scroll-postcard-back:after{content:"";position:absolute;inset:10px;border:1px solid #ad887533;pointer-events:none}
+.scroll-postcard-front{align-items:center;text-align:center}
+.scroll-postmark{align-self:flex-end;font-size:8px;line-height:1.5;letter-spacing:.12em;color:#ad8875;border:1px dashed #ad8875;padding:7px;transform:rotate(5deg)}
+.scroll-postcard-front strong{font:italic clamp(25px,3vw,37px)/1.12 var(--serif);color:#49372f}
+.scroll-postcard-front small,.scroll-postcard-back small{font-size:8px;letter-spacing:.17em;color:#ad8875}
+.scroll-flower{position:relative;width:90px;height:90px;margin:auto}
+.scroll-flower i{position:absolute;left:29px;top:0;width:32px;height:49px;border-radius:50%;background:#f2b0be;transform-origin:16px 45px}
+.scroll-flower i:nth-child(2){transform:rotate(60deg)}.scroll-flower i:nth-child(3){transform:rotate(120deg)}.scroll-flower i:nth-child(4){transform:rotate(180deg)}.scroll-flower i:nth-child(5){transform:rotate(240deg)}.scroll-flower i:nth-child(6){transform:rotate(300deg)}
+.scroll-flower b{position:absolute;left:34px;top:34px;width:22px;height:22px;border-radius:50%;background:#ad8875;border:4px solid #fff4eb}
+.scroll-postcard-back{transform:rotateY(180deg);background:#fbf2eb}
+.back-lines{height:42%;border-bottom:1px solid #ad887555;background:repeating-linear-gradient(to bottom,transparent 0 27px,#ad887533 28px 29px)}
+.back-stamp{position:absolute;top:23px;right:24px;font-size:30px}
+.scroll-postcard-back p{font:italic clamp(25px,3vw,37px)/1.1 var(--serif);color:#49372f}
+.scroll-postcard-back p em{color:#ad8875}
+.scene-caption{position:absolute;font-size:8px;letter-spacing:.17em;color:#9b8275;opacity:.35;transition:opacity .3s}
+.scene-caption-left{left:0;bottom:12%}.scene-caption-right{right:0;top:12%}
+.scene-end-note{position:absolute;bottom:1%;font:italic 15px var(--serif);color:#ad8875;opacity:0;transform:translateY(10px);transition:opacity .4s,transform .4s}
+.mail-scene.is-finished .scene-end-note{opacity:1;transform:translateY(0)}
+.mail-scene.is-back .scene-caption-left{opacity:.25}.mail-scene.is-back .scene-caption-right{opacity:1}
+@media(max-width:760px){
+ .mail-scene{height:220vh}
+ .mail-scene-sticky{min-height:0;grid-template-columns:1fr;grid-template-rows:auto 1fr;padding:9vh 7vw 5vh;align-items:start}
+ .mail-scene-heading{text-align:center;margin:auto}
+ .mail-scene-heading h2{font-size:clamp(42px,11vw,60px);margin:12px 0}
+ .mail-scene-stage{height:53vh;min-height:360px;width:100%}
+ .scroll-postcard{width:clamp(190px,55vw,260px)}
+ .mail-orbit{width:70vw}.mail-orbit-two{width:84vw}
+ .scene-caption-left{left:0;bottom:4%}.scene-caption-right{right:0;top:4%}
+ .scene-end-note{bottom:-1%;font-size:13px}
+}
+@media(prefers-reduced-motion:reduce){.mail-scene{height:auto}.mail-scene-sticky{position:relative;height:auto;min-height:650px}.scroll-postcard{transform:none!important}}
 
 </style>
 </head>
@@ -202,11 +248,42 @@ footer:before{content:"";position:absolute;top:0;left:7vw;right:7vw;height:1px;b
 <article class="item reveal"><div class="itemvisual"><span class="item-number">03 / 03</span><div class="fakecard"><div><span>made<br>with love</span><br><small>tiny things, happy hearts</small></div></div><span class="item-scribble">a gift to keep</span></div><div class="itemlabel"><h3>Pequeños regalos</h3><span>↗</span></div></article>
 </div></section>
 
+
+<section class="mail-scene" id="una-postal">
+  <div class="mail-scene-sticky">
+    <div class="mail-scene-heading">
+      <span>UN PEQUEÑO VIAJE · POSTELLA</span>
+      <h2>cada postal<br>tiene <em>su momento.</em></h2>
+    </div>
+    <div class="mail-scene-stage" aria-label="Una postal de postella gira y revela un mensaje al desplazarse por la página">
+      <div class="mail-orbit mail-orbit-one"></div>
+      <div class="mail-orbit mail-orbit-two"></div>
+      <div class="scroll-postcard">
+        <div class="scroll-postcard-front">
+          <span class="scroll-postmark">MADRID<br>POSTELLA</span>
+          <div class="scroll-flower"><i></i><i></i><i></i><i></i><i></i><i></i><b></b></div>
+          <strong>para alguien<br>especial.</strong>
+          <small>UNA POSTAL, UN RECUERDO</small>
+        </div>
+        <div class="scroll-postcard-back">
+          <div class="back-lines"></div>
+          <span class="back-stamp">💌</span>
+          <p>Hay mensajes<br>que merecen<br><em>llegar lejos.</em></p>
+          <small>CON CARIÑO, POSTELLA</small>
+        </div>
+      </div>
+      <div class="scene-caption scene-caption-left">01 — UNA IDEA</div>
+      <div class="scene-caption scene-caption-right">02 — UN MENSAJE</div>
+      <div class="scene-end-note">de madrid al mundo, tus postales 💌</div>
+    </div>
+  </div>
+</section>
+
 <section class="postscript">
   <div class="postscript-inner reveal">
     <span class="postscript-top">A NOTE FROM POSTELLA · MADRID</span>
     <p>“Hay cosas que no deberían quedarse<br><em>sin enviar.</em>”</p>
-    <div class="postscript-bottom"><span>WRITTEN WITH LOVE</span><span>✳</span><span>POSTELLA POSTAL CLUB</span></div>
+    <div class="postscript-bottom"><span>WRITTEN WITH LOVE</span><span>💌</span><span>POSTELLA POSTAL CLUB</span></div>
   </div>
 </section>
 
@@ -249,5 +326,30 @@ if(art && window.matchMedia('(hover:hover) and (pointer:fine)').matches){
   });
   art.addEventListener('mouseleave',()=>art.style.transform='');
 }
+
+const mailScene=document.querySelector('.mail-scene');
+const mailCard=document.querySelector('.scroll-postcard');
+let mailTick=false;
+function updateMailScene(){
+  if(!mailScene||!mailCard)return;
+  const rect=mailScene.getBoundingClientRect();
+  const travel=mailScene.offsetHeight-window.innerHeight;
+  const progress=Math.max(0,Math.min(1,-rect.top/Math.max(1,travel)));
+  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduced){
+    const turns=progress*430;
+    const tilt=Math.sin(progress*Math.PI*2)*5;
+    mailCard.style.transform=`rotateY(${turns}deg) rotateZ(${tilt}deg) translateY(${Math.sin(progress*Math.PI*2)*12}px)`;
+  }
+  mailScene.classList.toggle('is-back',progress>.48);
+  mailScene.classList.toggle('is-finished',progress>.88);
+  mailTick=false;
+}
+window.addEventListener('scroll',()=>{
+  if(!mailTick){window.requestAnimationFrame(updateMailScene);mailTick=true;}
+},{passive:true});
+window.addEventListener('resize',updateMailScene);
+updateMailScene();
+
 </script>
 </body></html>
