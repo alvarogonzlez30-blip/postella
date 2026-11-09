@@ -604,6 +604,123 @@ footer{padding-top:80px}
  .finale-button b{font-size:16px}
 }
 
+
+
+/* movimiento extra: detalles sutiles al recorrer la web */
+@keyframes postcard-hover-a{0%,100%{translate:0 0;rotate:-1.2deg}50%{translate:0 -13px;rotate:1deg}}
+@keyframes postcard-hover-b{0%,100%{translate:0 0;rotate:1.5deg}50%{translate:0 15px;rotate:-1deg}}
+@keyframes mascot-bob{0%,100%{translate:0 0;rotate:-2deg}50%{translate:0 -12px;rotate:2deg}}
+@keyframes soft-glow{0%,100%{filter:drop-shadow(0 12px 22px #49372f12)}50%{filter:drop-shadow(0 22px 30px #49372f25)}}
+@keyframes item-arrive{0%{opacity:0;translate:0 45px;scale:.97}100%{opacity:1;translate:0 0;scale:1}}
+@keyframes stamp-drift{0%,100%{translate:0 0;rotate:-5deg}50%{translate:5px -9px;rotate:2deg}}
+@keyframes finale-letter-float{0%,100%{translate:0 0;rotate:-8deg}50%{translate:0 -20px;rotate:7deg}}
+@keyframes underline-sweep{0%{scale:0 1;transform-origin:left}100%{scale:1 1;transform-origin:left}}
+.hero .photo-one{animation:postcard-hover-a 7s ease-in-out infinite}
+.hero .photo-two{animation:postcard-hover-b 8s ease-in-out infinite}
+.hero .hero-mascot{animation:mascot-bob 5.5s ease-in-out infinite;will-change:transform}
+.hero .hero-postmark{animation:stamp-drift 6s ease-in-out infinite}
+.itemvisual .collection-photo,.itemvisual .stationery-stilllife,.itemvisual .gift-stilllife{transition:transform .75s cubic-bezier(.2,.75,.25,1),filter .75s}
+.itemvisual:hover .collection-photo,.itemvisual:hover .stationery-stilllife,.itemvisual:hover .gift-stilllife{transform:translateY(-9px) scale(1.045);filter:drop-shadow(0 18px 18px #49372f20)}
+.item-arrived .itemvisual{animation:item-arrive .85s cubic-bezier(.2,.75,.25,1) both}
+.item:nth-child(2) .itemvisual{animation-delay:.12s}
+.item:nth-child(3) .itemvisual{animation-delay:.24s}
+.join-cta-card{animation:soft-glow 7s ease-in-out infinite}
+.join-card-stamp{animation:stamp-drift 7s ease-in-out infinite}
+.join-card-heart{display:inline-block;transition:transform .35s}
+.join-cta-card:hover .join-card-heart{transform:scale(1.18) rotate(-12deg)}
+.mail-orbit-one,.mail-orbit-two{will-change:transform}
+.mail-scene.is-back .mail-orbit-one{transform:rotate(22deg) scale(1.08)}
+.mail-scene.is-back .mail-orbit-two{transform:rotate(-18deg) scale(.94)}
+.finale-letter{animation:finale-letter-float 6s ease-in-out infinite}
+.finale-letter.letter-b{animation-delay:-1.4s}.finale-letter.letter-c{animation-delay:-2.8s}.finale-letter.letter-d{animation-delay:-4.2s}
+.finale-stamp{animation:stamp-drift 8s ease-in-out infinite}
+.finale-button{position:relative;overflow:hidden}
+.finale-button:after{content:"";position:absolute;left:0;bottom:0;width:100%;height:2px;background:var(--pink);transform:scaleX(0);transform-origin:left;transition:transform .45s}
+.finale-button:hover:after{transform:scaleX(1)}
+@media(hover:hover) and (pointer:fine){.postcard-photo:hover{z-index:5;scale:1.045}.scroll-postcard{transition:filter .5s}.mail-scene:hover .scroll-postcard{filter:drop-shadow(0 30px 32px #49372f30)}}
+@media(prefers-reduced-motion:reduce){.hero .photo-one,.hero .photo-two,.hero .hero-mascot,.hero .hero-postmark,.join-cta-card,.join-card-stamp,.finale-letter,.finale-stamp{animation:none!important}}
+
+
+/* postella — extra motion pass; existing layout and copy remain unchanged */
+@media (prefers-reduced-motion: no-preference) {
+  .hero .photo-one { animation: hero-card-one 7.5s ease-in-out infinite; }
+  .hero .photo-two { animation: hero-card-two 8.5s ease-in-out infinite; }
+  .hero .hero-mascot { animation: mascot-gentle-float 5.8s ease-in-out infinite; }
+  .hero .orb { animation: orb-soft-breathe 9s ease-in-out infinite; }
+
+  .join-cta-card { animation: join-card-hover 6.5s ease-in-out infinite; }
+  .join-card-stamp { animation: stamp-wiggle 5s ease-in-out infinite; }
+  .join-button span { display:inline-block; transition:transform .35s ease; }
+  .join-button:hover span { transform:translateX(5px); }
+
+  .itemvisual { overflow:hidden; }
+  .itemvisual:before {
+    content:""; position:absolute; inset:-35% auto -35% -65%; width:34%;
+    transform:rotate(18deg); background:linear-gradient(90deg,transparent,#fff7,transparent);
+    pointer-events:none; z-index:4; opacity:0;
+  }
+  .item:hover .itemvisual:before { opacity:1; animation:paper-glint 1s ease forwards; }
+  .item:nth-child(1) .collection-photo { animation:collection-postcard-float 6.8s ease-in-out infinite; }
+  .item:nth-child(2) .stationery-stilllife { animation:stationery-parallax-float 7.2s ease-in-out infinite; }
+  .item:nth-child(3) .gift-stilllife { animation:gift-parcel-float 6.4s ease-in-out infinite; }
+  .item:hover .collection-photo,.item:hover .stationery-stilllife,.item:hover .gift-stilllife { animation-play-state:paused; }
+
+  .mail-scene-heading h2 { animation:heading-breathe 6s ease-in-out infinite; }
+  .scroll-postcard { filter:drop-shadow(0 24px 25px #49372f20); }
+  .scroll-postcard-front:after,.scroll-postcard-back:after { animation:postcard-border-glow 7s ease-in-out infinite; }
+
+  .postscript .giant-envelope { animation:envelope-drift 7s ease-in-out infinite; }
+  .postscript .giant-letter { animation:letter-peek 6s ease-in-out infinite; }
+
+  .finale-letter { animation:finale-letter-drift 6.5s ease-in-out infinite; }
+  .finale-letter.letter-b { animation-delay:-1.6s; }
+  .finale-letter.letter-c { animation-delay:-3.1s; }
+  .finale-letter.letter-d { animation-delay:-4.7s; }
+  .finale-stamp { animation:stamp-orbit 7s ease-in-out infinite; }
+  .finale-button { transition:transform .4s cubic-bezier(.2,.8,.2,1),background .35s,color .35s,box-shadow .35s; }
+  .finale-button:hover { box-shadow:0 15px 30px #49372f20; }
+  .finale-signoff span { display:inline-block; animation:signoff-kiss 2.8s ease-in-out infinite; }
+}
+@keyframes hero-card-one {0%,100%{transform:rotate(-10deg) translate3d(0,0,0)}50%{transform:rotate(-6deg) translate3d(-5px,-17px,0)}}
+@keyframes hero-card-two {0%,100%{transform:rotate(9deg) translate3d(0,0,0)}50%{transform:rotate(13deg) translate3d(6px,15px,0)}}
+@keyframes mascot-gentle-float {0%,100%{translate:0 0;rotate:3deg}50%{translate:0 -13px;rotate:-3deg}}
+@keyframes orb-soft-breathe {0%,100%{scale:.98}50%{scale:1.045}}
+@keyframes join-card-hover {0%,100%{translate:0 0;rotate:1deg}50%{translate:0 -8px;rotate:-1deg}}
+@keyframes stamp-wiggle {0%,100%{rotate:0deg}50%{rotate:4deg}}
+@keyframes paper-glint {0%{left:-65%}100%{left:135%}}
+@keyframes collection-postcard-float {0%,100%{translate:0 0;rotate:-2deg}50%{translate:0 -10px;rotate:1deg}}
+@keyframes stationery-parallax-float {0%,100%{translate:0 0;rotate:-1.5deg}50%{translate:0 -11px;rotate:1.5deg}}
+@keyframes gift-parcel-float {0%,100%{translate:0 0;rotate:1deg}50%{translate:0 -12px;rotate:-1deg}}
+@keyframes heading-breathe {0%,100%{transform:translateY(0)}50%{transform:translateY(-5px)}}
+@keyframes postcard-border-glow {0%,100%{border-color:#ad887533}50%{border-color:#f2b0beaa}}
+@keyframes envelope-drift {0%,100%{translate:0 0;rotate:-8deg}50%{translate:0 -12px;rotate:-5deg}}
+@keyframes letter-peek {0%,100%{translate:0 0}50%{translate:0 -8px}}
+@keyframes finale-letter-drift {0%,100%{translate:0 0;rotate:-8deg}50%{translate:0 -23px;rotate:9deg}}
+@keyframes stamp-orbit {0%,100%{transform:rotate(12deg) translateY(0)}50%{transform:rotate(5deg) translateY(-9px)}}
+@keyframes signoff-kiss {0%,100%{transform:translateY(0) rotate(-8deg) scale(1)}50%{transform:translateY(-5px) rotate(8deg) scale(1.12)}}
+
+@media (hover:hover) and (pointer:fine) {
+  .collection-photo,.stationery-stilllife,.gift-stilllife { transition:transform .55s cubic-bezier(.2,.8,.2,1),filter .55s; }
+  .item:hover .collection-photo,.item:hover .stationery-stilllife,.item:hover .gift-stilllife {
+    transform:translateY(-13px) scale(1.055); filter:drop-shadow(0 20px 18px #49372f24);
+  }
+  .postcard-photo { transition:filter .5s,scale .5s; }
+  .postcard-photo:hover { filter:drop-shadow(0 24px 22px #49372f28); }
+}
+@media(max-width:760px) {
+  .hero .photo-one { animation-duration:8.5s; }
+  .hero .photo-two { animation-duration:9.5s; }
+  .itemvisual:before { display:none; }
+}
+@media(prefers-reduced-motion:reduce) {
+  .hero .photo-one,.hero .photo-two,.hero .hero-mascot,.hero .orb,
+  .join-cta-card,.join-card-stamp,.item:nth-child(1) .collection-photo,
+  .item:nth-child(2) .stationery-stilllife,.item:nth-child(3) .gift-stilllife,
+  .mail-scene-heading h2,.scroll-postcard-front:after,.scroll-postcard-back:after,
+  .postscript .giant-envelope,.postscript .giant-letter,.finale-letter,.finale-stamp,
+  .finale-signoff span { animation:none!important; }
+}
+
 </style>
 </head>
 <body>
@@ -786,6 +903,13 @@ updateMailScene();
 
 
 const postellaMotion=()=>{
+ const heroArt=document.querySelector('.hero .art');
+ if(heroArt && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+   const bounds=heroArt.getBoundingClientRect();
+   const visible=Math.max(0,Math.min(1,(window.innerHeight-bounds.top)/(window.innerHeight+bounds.height)));
+   heroArt.style.setProperty('--scroll-lift',`${(1-visible)*18}px`);
+ }
+
  const cards=document.querySelectorAll('.postcard');
  const y=window.scrollY;
  cards.forEach((card,i)=>{
@@ -803,6 +927,27 @@ const postellaMotion=()=>{
 };
 window.addEventListener('scroll',postellaMotion,{passive:true});
 postellaMotion();
+
+
+const motionTargets=document.querySelectorAll('.itemvisual');
+if(window.matchMedia('(hover:hover) and (pointer:fine)').matches &&
+   !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+  motionTargets.forEach(surface=>{
+    const object=surface.querySelector('.collection-photo,.stationery-stilllife,.gift-stilllife');
+    if(!object)return;
+    surface.addEventListener('pointermove',event=>{
+      const r=surface.getBoundingClientRect();
+      const x=(event.clientX-r.left)/r.width-.5;
+      const y=(event.clientY-r.top)/r.height-.5;
+      object.style.setProperty('--pointer-x',`${x*5}deg`);
+      object.style.setProperty('--pointer-y',`${-y*5}deg`);
+    });
+    surface.addEventListener('pointerleave',()=>{
+      object.style.removeProperty('--pointer-x');
+      object.style.removeProperty('--pointer-y');
+    });
+  });
+}
 
 </script>
 </body></html>
