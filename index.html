@@ -134,7 +134,7 @@ header.scrolled{background:#eeeae7f5;box-shadow:0 8px 30px #49372f0c}
 .storyart:hover .letter{transform:rotate(2deg) translateY(-9px)}
 .visit{position:relative;overflow:hidden}
 .visit:before{content:"💌";position:absolute;left:9%;top:17%;font-size:45px;color:#f2b0be;opacity:.7;animation:slow-spin 24s linear infinite}
-.visit:after{content:"♡";position:absolute;right:10%;bottom:18%;font:60px var(--serif);color:#ad887555;transform:rotate(12deg)}
+.visit:after{content:none}
 footer{position:relative;overflow:hidden}
 footer:before{content:"";position:absolute;top:0;left:7vw;right:7vw;height:1px;background:#ffffff66}
 .footlogo img{filter:drop-shadow(0 5px 10px #49372f18)}
@@ -203,6 +203,31 @@ footer:before{content:"";position:absolute;top:0;left:7vw;right:7vw;height:1px;b
  .scene-end-note{bottom:-1%;font-size:13px}
 }
 @media(prefers-reduced-motion:reduce){.mail-scene{height:auto}.mail-scene-sticky{position:relative;height:auto;min-height:650px}.scroll-postcard{transform:none!important}}
+
+
+/* More tactile motion, less decoration: envelopes, paper and gentle reveals */
+.visit{min-height:760px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:80px;padding-bottom:100px}
+.visit-envelope{width:190px;height:135px;position:relative;margin:0 auto 48px;perspective:700px;filter:drop-shadow(0 18px 18px #49372f18);transform:rotate(-7deg)}
+.visit-envelope-back{position:absolute;inset:0;background:#d9b9a9;clip-path:polygon(0 0,100% 0,100% 100%,0 100%);border:1px solid #b99280}
+.visit-letter{position:absolute;z-index:1;left:17px;right:17px;top:7px;height:120px;background:#fffaf4;border:1px solid #eadfd7;display:flex;align-items:center;justify-content:center;flex-direction:column;font:italic 22px/1.1 var(--serif);color:#49372f;text-align:center;transform:translateY(0);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.visit-letter em{color:#ad8875}.visit-letter span{font:18px var(--sans);margin-top:8px}
+.visit-envelope-flap{position:absolute;z-index:2;inset:0;background:#edc7c6;clip-path:polygon(0 0,50% 62%,100% 0);transform-origin:top;transition:transform .8s cubic-bezier(.2,.8,.2,1);backface-visibility:hidden}
+.visit-envelope:hover .visit-envelope-flap{transform:rotateX(180deg)}
+.visit-envelope:hover .visit-letter{transform:translateY(-48px) rotate(2deg)}
+.visit-envelope{animation:envelope-hover 5s ease-in-out infinite}
+@keyframes envelope-hover{0%,100%{translate:0 0}50%{translate:0 -12px}}
+.itemvisual{transition:transform .7s cubic-bezier(.2,.8,.2,1),filter .7s}
+.itemvisual .fakecard{will-change:transform}
+.item:nth-child(1) .fakecard{transform:rotate(-9deg) translateY(10px)}
+.item:nth-child(2) .fakecard{transform:rotate(7deg) translateY(-8px)}
+.item:nth-child(3) .fakecard{transform:rotate(-4deg) translateY(7px)}
+.item:hover .fakecard{transform:rotate(0) translateY(-8px) scale(1.06)}
+.storyart .letter{animation:letter-bob 6s ease-in-out infinite}
+@keyframes letter-bob{0%,100%{translate:0 0;rotate:7deg}50%{translate:0 -13px;rotate:3deg}}
+.postscript-inner{position:relative}
+.postscript-inner:before{content:"";position:absolute;left:50%;top:-8px;width:16px;height:16px;border-radius:50%;background:#f2b0be;transform:translateX(-50%)}
+.reveal{will-change:opacity,transform}
+@media(max-width:760px){.visit{min-height:650px}.visit-envelope{margin-bottom:38px}.visit h2{font-size:clamp(48px,12vw,70px)}}
 
 </style>
 </head>
@@ -282,15 +307,25 @@ footer:before{content:"";position:absolute;top:0;left:7vw;right:7vw;height:1px;b
 <section class="postscript">
   <div class="postscript-inner reveal">
     <span class="postscript-top">A NOTE FROM POSTELLA · MADRID</span>
-    <p>“Hay cosas que no deberían quedarse<br><em>sin enviar.</em>”</p>
+    <p>“hecho para enviar.<br><em>hecho para guardar.</em>”</p>
     <div class="postscript-bottom"><span>WRITTEN WITH LOVE</span><span>💌</span><span>POSTELLA POSTAL CLUB</span></div>
   </div>
 </section>
 
-<section class="story" id="historia"><div class="storyart reveal"><div class="circle"></div><div class="letter">dear<br>you,<br><small style="font:10px var(--sans);letter-spacing:.15em">WITH LOVE, POSTELLA</small></div></div><div class="storycopy reveal"><div class="eyebrow">un poquito de nosotros</div><h2>not just a postcard.<br><em>a feeling.</em></h2><p>Creemos que las cosas pequeñas pueden guardar historias enormes. Por eso imaginamos Postella: un universo de ilustración, creatividad y papelería donde cada diseño tiene algo que contar.</p><p>Queremos recuperar la emoción de recibir algo bonito, tocar el papel, escribir unas palabras y guardar recuerdos que merecen quedarse.</p><a class="button" href="#visitanos">conoce nuestro mundo ↗</a></div></section>
+<section class="story" id="historia"><div class="storyart reveal"><div class="circle"></div><div class="letter">dear<br>you,<br><small style="font:10px var(--sans);letter-spacing:.15em">WITH LOVE, POSTELLA</small></div></div><div class="storycopy reveal"><div class="eyebrow">un poquito de nosotros</div><h2>not just a postcard.<br><em>a feeling.</em></h2><p>Diseño, papel y pequeños objetos para regalar o guardar. Así imaginamos postella: un lugar donde cada pieza tiene su propia historia.</p><a class="button" href="#visitanos">conoce nuestro mundo ↗</a></div></section>
 
 
-<section class="visit" id="visitanos"><div class="eyebrow">nos vemos pronto</div><h2>come say <em style="color:var(--brown)">hello.</em></h2><p>Estamos preparando nuestro pequeño rincón en Madrid.<br>Muy pronto podrás descubrir Postella en persona.</p><a class="button" href="https://www.instagram.com/postellapaper/" target="_blank" rel="noreferrer">síguenos en instagram ↗</a></section>
+<section class="visit" id="visitanos">
+  <div class="visit-envelope reveal" aria-hidden="true">
+    <div class="visit-envelope-back"></div>
+    <div class="visit-letter">nos vemos<br><em>muy pronto.</em><span>💌</span></div>
+    <div class="visit-envelope-flap"></div>
+  </div>
+  <div class="eyebrow">madrid · próximamente</div>
+  <h2>come say <em style="color:var(--brown)">hello.</em></h2>
+  <p>Un nuevo rincón creativo está a punto de abrir.</p>
+  <a class="button" href="https://www.instagram.com/postellapaper/" target="_blank" rel="noreferrer">síguenos en instagram <span>↗</span></a>
+</section>
 </main>
 <footer><div class="foot"><div><div class="footlogo"><img src="postella-logo.png" alt="Postella"></div><div style="font:italic 16px var(--serif)">with love, always.</div></div><div class="footquote">“Some things are too lovely not to share.”</div><div class="footlinks"><a href="#colecciones">colecciones</a><a href="#historia">sobre nosotros</a><a href="mailto:hi@postellapaper.com">contacto</a></div></div><div class="legal"><span>© 2026 postella</span><span>made of little moments ♡</span></div></footer>
 <script>
@@ -313,6 +348,7 @@ const obs=new IntersectionObserver(es=>es.forEach(e=>{
     const siblings=[...e.target.parentElement.querySelectorAll(':scope > .reveal')];
     e.target.style.transitionDelay=(Math.max(0,siblings.indexOf(e.target))*90)+'ms';
     e.target.classList.add('show');
+    if(e.target.classList.contains('item')) e.target.classList.add('item-arrived');
     obs.unobserve(e.target);
   }
 }),{threshold:.12});
