@@ -872,18 +872,39 @@ footer{padding-top:80px}
 @media(prefers-reduced-motion:reduce){.postella-intro .intro-brand-letter,.postella .letter-stamp,.letter-plane{animation:none!important}.postella .letter-stamp{transform:rotate(7deg)}}
 
 
-/* SEND A LITTLE LOVE — escultura postal 3D flotante */
-.postscript-inner{perspective:1200px}
-.love-orbit{position:absolute;z-index:8;left:calc(50% + min(25vw,310px));top:24%;width:clamp(82px,11vw,142px);height:clamp(82px,11vw,142px);pointer-events:none;transform-style:preserve-3d;animation:love-orbit-drift 5.8s ease-in-out infinite}
-.love-orbit-ring{position:absolute;inset:8%;border:1px solid #fff9;border-radius:50%;transform:rotateX(68deg) rotateZ(-24deg);box-shadow:0 0 0 7px #fff2,0 0 28px #fff7;animation:love-ring-spin 9s linear infinite}
-.love-orbit-seal{position:absolute;inset:18%;display:grid;place-items:center;border-radius:50%;font:clamp(36px,5vw,60px)/1 Georgia,serif;color:#fff8f5;background:radial-gradient(circle at 30% 24%,#fff5f5 0 5%,#f8c5cf 13%,#e99dad 39%,#cc8294 68%,#a85f76 100%);border:1px solid #fff9;box-shadow:inset -9px -12px 18px #8e4e653f,inset 7px 7px 14px #fff8,0 18px 30px #80526440;transform:translateZ(24px) rotateY(-18deg);text-shadow:0 2px 5px #a85f7666;animation:love-seal-turn 6s ease-in-out infinite}
-.love-orbit-spark{position:absolute;right:3%;top:7%;font-size:clamp(18px,2.5vw,28px);color:#fffaf4;text-shadow:0 3px 10px #ad8875aa;animation:love-spark-pulse 2.2s ease-in-out infinite}
-@keyframes love-orbit-drift{0%,100%{translate:0 0;rotate:-5deg}50%{translate:0 -19px;rotate:7deg}}
-@keyframes love-ring-spin{from{transform:rotateX(68deg) rotateZ(0)}to{transform:rotateX(68deg) rotateZ(360deg)}}
-@keyframes love-seal-turn{0%,100%{transform:translateZ(24px) rotateY(-18deg) rotateX(5deg)}50%{transform:translateZ(40px) rotateY(18deg) rotateX(-7deg)}}
-@keyframes love-spark-pulse{0%,100%{opacity:.55;scale:.8}50%{opacity:1;scale:1.2}}
-@media(max-width:760px){.love-orbit{left:auto;right:7%;top:13%;width:76px;height:76px}.love-orbit-seal{font-size:34px}.love-orbit-ring{inset:8%}}
-@media(prefers-reduced-motion:reduce){.love-orbit,.love-orbit-ring,.love-orbit-seal,.love-orbit-spark{animation:none!important}}
+/* SEND A LITTLE LOVE — postal 3D interactiva a gran escala */
+.postscript{height:auto;min-height:100svh;padding:clamp(48px,7vh,90px) 5vw 7vh;display:grid;place-items:center;overflow:hidden;background:radial-gradient(ellipse at 50% 42%,#f7c2cd 0%,#f2b0be 54%,#eaa3b4 100%)}
+.postscript-inner{width:min(100%,1100px);height:auto;min-height:86svh;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(18px,3vh,34px);border:0;padding:0;margin:auto;perspective:1600px}
+.postscript-inner:before{display:none}
+.postscript .giant-envelope{display:none!important}
+.postscript-inner p{position:static;order:0;font:italic clamp(38px,6vw,76px)/.88 var(--serif);letter-spacing:-.075em;margin:0;color:#49372f;text-align:center}
+.postscript-inner p em{color:#fffaf4}
+.love-card-button{position:relative;order:1;display:block;width:clamp(270px,37vw,440px);height:clamp(350px,48vw,540px);padding:0;border:0;background:transparent;perspective:1600px;cursor:pointer;transform-style:preserve-3d;filter:drop-shadow(0 30px 34px #8b52602b);animation:love-card-hover 5.5s ease-in-out infinite;touch-action:manipulation}
+.love-card-inner{position:absolute;inset:0;transform-style:preserve-3d;transition:transform .95s cubic-bezier(.2,.75,.2,1)}
+.love-card-button.is-flipped .love-card-inner{transform:rotateY(180deg)}
+.love-card-face{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;overflow:hidden;backface-visibility:hidden;-webkit-backface-visibility:hidden;border:1px solid #fff9;background:linear-gradient(145deg,#fffdf9,#f8eee8 72%,#f1e0dc);color:#49372f}
+.love-card-face:before{content:"";position:absolute;inset:13px;border:1px solid #ad887555;pointer-events:none}
+.love-card-front{gap:18px}
+.love-card-kicker{font:9px var(--sans);letter-spacing:.24em;text-transform:uppercase;color:#ad8875}
+.love-card-wordmark{font:900 clamp(28px,4vw,43px)/1 var(--sans);letter-spacing:-.095em;color:#f2b0be}
+.love-card-heart{position:relative;width:clamp(100px,14vw,160px);height:clamp(100px,14vw,160px);display:grid;place-items:center;margin:10px 0 4px;transform-style:preserve-3d}
+.love-card-heart:before{content:"";position:absolute;inset:7%;border-radius:50%;background:radial-gradient(circle at 32% 25%,#fff 0%,#f8dce2 19%,#efaebb 48%,#d9859b 78%,#b96c84 100%);box-shadow:inset -12px -16px 22px #9e5d7138,inset 9px 9px 16px #fff9,0 22px 28px #9e5d7135;transform:translateZ(22px)}
+.love-card-heart span{position:relative;z-index:1;color:#fffaf7;font:clamp(64px,8vw,100px)/1 Georgia,serif;text-shadow:0 4px 8px #9e5d7155;transform:translateZ(48px);animation:heart-pulse-3d 2.6s ease-in-out infinite}
+.love-card-title{font:italic clamp(26px,3.3vw,39px)/.95 var(--serif);letter-spacing:-.06em;text-align:center;max-width:80%}
+.love-card-footer{position:absolute;bottom:30px;font:8px var(--sans);letter-spacing:.18em;color:#ad8875;text-transform:uppercase}
+.love-card-stamp{position:absolute;right:28px;top:28px;width:58px;height:68px;display:grid;place-items:center;text-align:center;background:linear-gradient(145deg,#fce8eb,#e9b5c0 65%,#d48b9d);border:1px solid #d59aa8;box-shadow:3px 4px 0 #d5a1ad,7px 11px 18px #49372f20;transform:rotate(7deg) translateZ(18px);font:7px/1.4 var(--sans);letter-spacing:.08em;color:#8c5968}
+.love-card-back{transform:rotateY(180deg);padding:clamp(28px,4vw,48px);gap:22px;text-align:center}
+.love-card-back .back-top{font:900 25px var(--sans);letter-spacing:-.1em;color:#f2b0be}
+.love-card-back .back-message{font:italic clamp(26px,3.4vw,40px)/1.04 var(--serif);letter-spacing:-.055em}
+.love-card-back .back-message em{color:#ad8875}
+.love-card-back .back-note{font:10px/1.6 var(--sans);letter-spacing:.04em;color:#927a6e;max-width:220px}
+.love-card-back .back-sign{font:italic 19px var(--serif);color:#ad8875}
+.love-card-hint{order:2;display:flex;align-items:center;gap:10px;font:9px var(--sans);letter-spacing:.18em;text-transform:uppercase;color:#805e61;background:#fff5;padding:12px 18px;border:1px solid #fff8;border-radius:99px}
+.love-card-hint:before{content:"↻";font:20px Georgia,serif}
+@keyframes love-card-hover{0%,100%{transform:translateY(0) rotate(-1.2deg)}50%{transform:translateY(-15px) rotate(1.2deg)}}
+@keyframes heart-pulse-3d{0%,100%{transform:translateZ(48px) scale(1)}50%{transform:translateZ(58px) scale(1.08)}}
+@media(max-width:760px){.postscript{min-height:90svh;padding:42px 5vw 48px}.postscript-inner{min-height:82svh;gap:22px}.love-card-button{width:min(76vw,340px);height:min(105vw,440px)}.love-card-stamp{right:22px;top:22px;width:48px;height:57px}.love-card-heart{width:118px;height:118px}.love-card-title{font-size:29px}.love-card-back{padding:28px 22px}.love-card-back .back-message{font-size:30px}.postscript-inner p{font-size:clamp(39px,11vw,58px)}}
+@media(prefers-reduced-motion:reduce){.love-card-button,.love-card-heart span{animation:none!important}.love-card-inner{transition:none!important}}
 
 </style>
 </head>
@@ -986,18 +1007,26 @@ footer{padding-top:80px}
 
 <section class="postscript">
   <div class="postscript-inner reveal">
-    <div class="giant-envelope" aria-hidden="true">
-      <div class="giant-letter">
-        <span class="letter-stamp" aria-label="Sello postal de postella">POSTELLA<br>EST. 2026</span><span class="letter-plane" aria-hidden="true"></span>
-        <span class="letter-mark">postella</span>
-        <span class="letter-rule"></span>
-        <span class="letter-message">las cosas bonitas<br>merecen <em>llegar.</em></span>
-        <span class="letter-signoff">de madrid al mundo, tus postales</span>
-      </div>
-      <div class="giant-flap"></div>
-    </div>
-    <div class="love-orbit" aria-hidden="true"><span class="love-orbit-ring"></span><span class="love-orbit-seal">♡</span><span class="love-orbit-spark">✦</span></div>
     <p>send a little<br><em>love.</em></p>
+    <button class="love-card-button" type="button" aria-label="Girar postal de postella" aria-pressed="false">
+      <span class="love-card-inner">
+        <span class="love-card-face love-card-front">
+          <span class="love-card-kicker">a little something from</span>
+          <span class="love-card-wordmark">postella</span>
+          <span class="love-card-stamp">POST<br>✦<br>LOVE</span>
+          <span class="love-card-heart"><span>♡</span></span>
+          <span class="love-card-title">send a little<br>love.</span>
+          <span class="love-card-footer">de madrid al mundo · est. 2026</span>
+        </span>
+        <span class="love-card-face love-card-back">
+          <span class="back-top">postella</span>
+          <span class="back-message">las cosas bonitas<br>merecen <em>llegar.</em></span>
+          <span class="back-note">Una postal, un recuerdo, unas palabras que se quedan. Porque hay cosas que merecen llegar mucho más lejos.</span>
+          <span class="back-sign">with love, always. ♡</span>
+        </span>
+      </span>
+    </button>
+    <span class="love-card-hint">toca la postal para girarla</span>
   </div>
 </section>
 
@@ -1162,6 +1191,14 @@ if(window.matchMedia('(hover:hover) and (pointer:fine)').matches &&
    surface.addEventListener('pointermove',e=>{const r=surface.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;object.style.transform=`perspective(900px) rotateX(${-y*5}deg) rotateY(${x*6}deg) translateZ(8px)`});
    surface.addEventListener('pointerleave',()=>{object.style.transform=''});
   });
+ }
+ const loveCard=document.querySelector('.love-card-button');
+ if(loveCard){
+  loveCard.addEventListener('click',()=>{const flipped=loveCard.classList.toggle('is-flipped');loveCard.setAttribute('aria-pressed',String(flipped));});
+  if(!reduced&&window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+   loveCard.addEventListener('pointermove',e=>{const r=loveCard.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;loveCard.style.animationPlayState='paused';loveCard.style.transform=`translateY(-8px) rotateX(${-y*13}deg) rotateY(${x*15}deg)`});
+   loveCard.addEventListener('pointerleave',()=>{loveCard.style.transform='';loveCard.style.animationPlayState='running'});
+  }
  }
 })();
 
