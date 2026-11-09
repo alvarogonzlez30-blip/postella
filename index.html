@@ -405,6 +405,54 @@ footer{padding-top:80px}
  .photo-one,.photo-two,.hero-mascot,.story-mascot,.visit-mascot{animation:none}
 }
 
+
+/* Final art direction: one postcard category, separate stationery and gift still lifes */
+.stationery-visual{background:#e9c7c9!important}
+.stationery-stilllife{position:relative;width:82%;height:78%;display:flex;align-items:center;justify-content:center;transform:rotate(-4deg);transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.stationery-visual:hover .stationery-stilllife{transform:rotate(0) translateY(-8px) scale(1.04)}
+.notebook{position:absolute;width:48%;height:76%;left:12%;top:10%;background:#f8f1e8;border:1px solid #d4b9a8;box-shadow:12px 15px 0 #ad8875;transform:rotate(-8deg);border-radius:3px}
+.notebook:before{content:"";position:absolute;left:12%;right:12%;top:18%;height:1px;background:#d9c8bd;box-shadow:0 18px #d9c8bd,0 36px #d9c8bd,0 54px #d9c8bd,0 72px #d9c8bd}
+.notebook span{position:absolute;left:12%;top:8%;width:35%;height:5px;background:#f2b0be;border-radius:9px}
+.notebook i{position:absolute;right:13%;bottom:12%;width:28px;height:28px;border:1px solid #ad8875;border-radius:50%}
+.notebook b{position:absolute;right:19%;bottom:18%;width:7px;height:7px;background:#ad8875;border-radius:50%}
+.paper-stack{position:absolute;width:44%;height:43%;right:2%;bottom:7%;transform:rotate(9deg)}
+.paper-stack i{position:absolute;inset:0;background:#fffaf4;border:1px solid #e1d4c9;box-shadow:0 4px 0 #d8c4b7}
+.paper-stack i:nth-child(2){transform:translate(-7px,-7px);background:#f5e7e2}
+.paper-stack i:nth-child(3){transform:translate(-14px,-14px);background:#fffaf4}
+.pencil{position:absolute;width:7px;height:78%;right:20%;top:0;background:#ad8875;border-radius:5px;transform:rotate(24deg);box-shadow:inset 2px 0 #d7b8a8}
+.pencil:before{content:"";position:absolute;top:-10px;left:0;border-left:3.5px solid transparent;border-right:3.5px solid transparent;border-bottom:10px solid #49372f}
+.paperclip{position:absolute;left:10%;top:15%;width:20px;height:38px;border:2px solid #ad8875;border-radius:12px;transform:rotate(-17deg)}
+.gift-visual{background:#d6c0b1!important}
+.gift-stilllife{position:relative;width:78%;height:76%;display:grid;place-items:center;transition:transform .8s cubic-bezier(.2,.8,.2,1)}
+.gift-visual:hover .gift-stilllife{transform:translateY(-9px) rotate(-2deg) scale(1.04)}
+.gift-box{position:relative;width:58%;height:54%;margin-top:12%;background:#f2b0be;box-shadow:16px 20px 0 #49372f20;border:1px solid #d995a6}
+.gift-ribbon-v{position:absolute;left:43%;top:0;bottom:0;width:14%;background:#f8e9df}
+.gift-ribbon-h{position:absolute;left:0;right:0;top:36%;height:14%;background:#f8e9df}
+.gift-bow{position:absolute;top:-23%;width:31%;height:25%;border:9px solid #f8e9df;border-radius:70% 70% 8% 70%}
+.gift-bow-left{left:18%;transform:rotate(22deg)}
+.gift-bow-right{right:18%;transform:scaleX(-1) rotate(22deg)}
+.gift-tag{position:absolute;right:0;top:3%;background:#fffaf4;padding:12px 15px;color:#80665a;font:italic 14px/1.2 Georgia,serif;transform:rotate(9deg);box-shadow:0 8px 20px #49372f18}
+.gift-spark{position:absolute;color:#fffaf4;font-size:26px}
+.spark-one{left:3%;top:25%;transform:rotate(-12deg)}
+.spark-two{right:0;bottom:13%;font-size:19px}
+.story{overflow:hidden}
+.storyart{min-height:480px}
+.paper-sculpture{position:relative;width:min(80%,420px);height:370px;display:grid;place-items:center;transform:rotate(-5deg)}
+.sheet{position:absolute;width:72%;height:78%;background:#fffaf4;box-shadow:0 22px 45px #49372f20;border:1px solid #e3d6ca}
+.sheet-back{transform:translate(28px,-20px) rotate(12deg);background:#d9b9a9}
+.sheet-mid{transform:translate(-18px,12px) rotate(-9deg);background:#f2b0be}
+.sheet-front{transform:rotate(3deg);display:block}
+.sheet-front:before{content:"";position:absolute;left:12%;right:12%;top:25%;height:2px;background:#d8c9be;box-shadow:0 22px #d8c9be,0 44px #d8c9be,0 66px #d8c9be}
+.sheet-front i{position:absolute;right:14%;bottom:13%;width:48px;height:48px;border:1px solid #ad8875;border-radius:50%}
+.sculpture-dot{position:absolute;z-index:3;width:44px;height:44px;border-radius:50%;background:#ad8875;right:5%;top:9%;box-shadow:0 0 0 12px #ad887522}
+.storycopy h2{max-width:720px;font-size:clamp(45px,7vw,94px);line-height:.94;letter-spacing:-.065em}
+.storycopy h2 em{color:#ad8875}
+.visit{min-height:620px;padding-top:130px}
+.visit-eyebrow{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:#ad8875;margin-bottom:28px}
+.visit h2{font-size:clamp(66px,12vw,150px);line-height:.82;letter-spacing:-.09em;margin:0}
+.visit p{margin:30px 0 35px;color:#806e63;font-size:16px}
+@media(max-width:760px){.stationery-stilllife{width:86%;height:78%}.notebook{width:49%;height:74%}.paper-sculpture{width:90%;height:310px}.storyart{min-height:350px}.storycopy h2{font-size:clamp(43px,11vw,70px)}.visit{min-height:540px;padding-top:100px}.visit h2{font-size:clamp(57px,14vw,90px)}}
+
 </style>
 </head>
 <body>
@@ -448,8 +496,8 @@ footer{padding-top:80px}
 <div class="ticker"><div><span>collect moments 💌 send love 💌 keep memories 💌 little things matter 💌</span><span>collect moments 💌 send love 💌 keep memories 💌 little things matter 💌</span></div></div>
 <section class="content" id="colecciones"><div class="heading reveal"><div><div class="eyebrow">objetos para querer</div><h2>colecciones.</h2></div></div><div class="grid">
 <article class="item reveal"><div class="itemvisual"><span class="item-number">01 / 03</span><div class="collection-photo collection-postcard"><img src="postal-madrid-01.jpg" alt="Postal ilustrada de Madrid"></div><span class="item-scribble">send a little joy</span></div><div class="itemlabel"><h3>Postales</h3><span>↗</span></div></article>
-<article class="item reveal"><div class="itemvisual"><span class="item-number">02 / 03</span><div class="collection-photo collection-postcard"><img src="postal-madrid-02.jpg" alt="Postal ilustrada de Madrid"></div><span class="item-scribble">made for your desk</span></div><div class="itemlabel"><h3>Papelería</h3><span>↗</span></div></article>
-<article class="item reveal"><div class="itemvisual"><span class="item-number">03 / 03</span><div class="collection-photo collection-mascot"><img src="mascota-cafe.png" alt="Isotipo de postella con una taza de café"></div><span class="item-scribble">a gift to keep</span></div><div class="itemlabel"><h3>Pequeños regalos</h3><span>↗</span></div></article>
+<article class="item reveal"><div class="itemvisual stationery-visual"><span class="item-number">02 / 03</span><div class="stationery-stilllife" aria-hidden="true"><div class="notebook"><span></span><i></i><b></b></div><div class="paper-stack"><i></i><i></i><i></i></div><div class="pencil"></div><div class="paperclip"></div></div><span class="item-scribble">made for your desk</span></div><div class="itemlabel"><h3>Papelería</h3><span>↗</span></div></article>
+<article class="item reveal"><div class="itemvisual gift-visual"><span class="item-number">03 / 03</span><div class="gift-stilllife" aria-hidden="true"><div class="gift-box"><i class="gift-ribbon-v"></i><i class="gift-ribbon-h"></i><i class="gift-bow gift-bow-left"></i><i class="gift-bow gift-bow-right"></i></div><div class="gift-tag">for you<br>with love</div><div class="gift-spark spark-one">✳</div><div class="gift-spark spark-two">✳</div></div><span class="item-scribble">a gift to keep</span></div><div class="itemlabel"><h3>Pequeños regalos</h3><span>↗</span></div></article>
 </div></section>
 
 
@@ -491,22 +539,14 @@ footer{padding-top:80px}
 </section>
 
 <section class="story" id="historia"><div class="storyart reveal">
-  <div class="story-mascot-halo"></div>
-  <img class="story-mascot" src="mascota-postella.png" alt="Isotipo rosa de postella">
-  <img class="story-mini-postcard" src="postal-madrid-01.jpg" alt="Postal ilustrada de Madrid">
-</div><div class="storycopy reveal"><div class="eyebrow">postella, madrid</div><h2>paper things.<br><em>real feelings.</em></h2></div></section>
+  <div class="paper-sculpture" aria-hidden="true"><span class="sheet sheet-back"></span><span class="sheet sheet-mid"></span><span class="sheet sheet-front"><i></i></span><span class="sculpture-dot"></span></div>
+</div><div class="storycopy reveal"><div class="eyebrow">hecho para guardar momentos</div><h2>pequeños detalles.<br><em>grandes recuerdos.</em></h2></div></section>
 
 
 <section class="visit" id="visitanos">
-  <div class="visit-envelope reveal" aria-hidden="true">
-    <div class="visit-envelope-back"></div>
-    <div class="visit-letter">nos vemos<br><em>muy pronto.</em><span>💌</span></div>
-    <div class="visit-envelope-flap"></div>
-  </div>
-  <img class="visit-mascot" src="mascota-cafe.png" alt="Mascota de postella con una taza de café">
-  <div class="eyebrow">madrid · próximamente</div>
+  <div class="visit-eyebrow">madrid · próximamente</div>
   <h2>come say <em style="color:var(--brown)">hello.</em></h2>
-  <p>Un nuevo rincón creativo está a punto de abrir.</p>
+  <p>nos vemos muy pronto.</p>
   <a class="button" href="https://www.instagram.com/postellapaper/" target="_blank" rel="noreferrer">síguenos en instagram <span>↗</span></a>
 </section>
 </main>
