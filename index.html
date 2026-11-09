@@ -906,6 +906,116 @@ footer{padding-top:80px}
 @media(max-width:760px){.postscript{min-height:90svh;padding:42px 5vw 48px}.postscript-inner{min-height:82svh;gap:22px}.love-card-button{width:min(76vw,340px);height:min(105vw,440px)}.love-card-stamp{right:22px;top:22px;width:48px;height:57px}.love-card-heart{width:118px;height:118px}.love-card-title{font-size:29px}.love-card-back{padding:28px 22px}.love-card-back .back-message{font-size:30px}.postscript-inner p{font-size:clamp(39px,11vw,58px)}}
 @media(prefers-reduced-motion:reduce){.love-card-button,.love-card-heart span{animation:none!important}.love-card-inner{transition:none!important}}
 
+
+/* POSTELLA LETTERS — newsletter integrada en send a little love */
+.newsletter-postscript{
+  position:relative;isolation:isolate;min-height:100svh;height:auto;
+  padding:clamp(76px,10vh,124px) 5vw clamp(70px,9vh,110px);
+  overflow:hidden;background:
+    radial-gradient(ellipse at 50% 38%,#f8d2d9 0%,#f2b0be 48%,#e9a2b2 100%);
+}
+.newsletter-postscript:before{
+  content:"";position:absolute;inset:18px;border:1px solid #fff7;pointer-events:none;z-index:-1;
+}
+.newsletter-inner{
+  position:relative;z-index:1;width:min(100%,1120px);min-height:0;height:auto;
+  display:grid;grid-template-columns:minmax(280px,.9fr) minmax(360px,1.1fr);
+  align-items:center;justify-content:center;gap:clamp(34px,7vw,100px);
+  margin:auto;padding:clamp(24px,4vw,60px) 0;border:0;perspective:1400px;
+}
+.newsletter-intro{position:relative;z-index:2;text-align:left;color:#49372f}
+.newsletter-kicker{display:flex;align-items:center;gap:12px;font:9px var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#805e61;margin-bottom:28px}
+.newsletter-kicker i{display:block;width:25px;height:1px;background:#ad8875}
+.newsletter-intro h2{font:italic clamp(56px,7vw,94px)/.82 var(--serif);letter-spacing:-.085em;margin:0 0 28px;color:#49372f}
+.newsletter-intro h2 em{color:#fffaf4}
+.newsletter-intro>p{max-width:390px;font:14px/1.8 var(--sans);letter-spacing:.01em;color:#654f4c;margin:0}
+.newsletter-paper-wrap{position:relative;width:min(100%,520px);margin:auto;perspective:1400px;transform:rotate(1.5deg);animation:newsletter-paper-float 6.5s ease-in-out infinite}
+.newsletter-paper-shadow{position:absolute;inset:8% -4% -5%;background:#9d64702e;filter:blur(26px);transform:rotate(-3deg);border-radius:4px}
+.newsletter-paper{
+  position:relative;overflow:hidden;background:linear-gradient(145deg,#fffefa 0%,#fffaf4 65%,#f7eee8 100%);
+  padding:clamp(25px,4vw,46px);color:#49372f;box-shadow:0 28px 70px #8b52602e,0 3px 8px #8b526015;
+  border:1px solid #fff;transform-style:preserve-3d;
+}
+.newsletter-paper:before{content:"";position:absolute;inset:12px;border:1px solid #ad88752c;pointer-events:none}
+.newsletter-paper-top{display:flex;align-items:flex-start;justify-content:space-between;position:relative;z-index:1}
+.newsletter-wordmark{font:900 clamp(29px,4vw,42px)/.9 var(--sans);letter-spacing:-.105em;color:#f2b0be}
+.newsletter-postmark{font:7px/1.55 var(--sans);letter-spacing:.14em;text-align:center;color:#ad8875;border:1px solid #ad8875;padding:7px 9px;transform:rotate(5deg)}
+.newsletter-stamp{position:absolute;right:clamp(25px,4vw,45px);top:clamp(76px,9vw,104px);width:54px;height:63px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;background:linear-gradient(145deg,#fce8eb,#e9b5c0 65%,#d48b9d);border:1px solid #d59aa8;box-shadow:3px 4px 0 #d5a1ad,7px 11px 18px #49372f20;transform:rotate(7deg);animation:newsletter-stamp-drift 5s ease-in-out infinite}
+.newsletter-stamp span{font-size:23px}.newsletter-stamp small{font:6px var(--sans);letter-spacing:.1em;color:#8c5968}
+.newsletter-paper-rule{height:1px;background:#ad88754d;margin:28px 0 24px}
+.newsletter-form-area{position:relative;z-index:2;max-width:100%}
+.newsletter-form-area .ml-form-embedContainer{width:100%!important;display:block!important;margin:0!important}
+.newsletter-form-area .ml-form-embedWrapper{width:100%!important;max-width:none!important;display:block!important;background:transparent!important;border:0!important;border-radius:0!important}
+.newsletter-form-area .ml-form-embedBody,.newsletter-form-area .ml-form-successBody{padding:0!important}
+.newsletter-form-area .ml-form-embedContent{text-align:left!important;margin:0 0 22px!important}
+.newsletter-form-area .ml-form-embedContent h4,.newsletter-form-area .ml-form-successContent h4{
+  font:italic clamp(25px,3vw,34px)/1.05 var(--serif)!important;letter-spacing:-.055em!important;color:#49372f!important;margin:0 0 10px!important;text-align:left!important
+}
+.newsletter-form-area .ml-form-embedContent p,.newsletter-form-area .ml-form-successContent p{
+  font:12px/1.65 var(--sans)!important;color:#806d64!important;margin:0!important;text-align:left!important
+}
+.newsletter-form-area .ml-form-fieldRow{margin:0 0 12px!important}
+.newsletter-form-area .ml-form-fieldRow input{
+  width:100%!important;box-sizing:border-box!important;height:50px!important;padding:0 16px!important;
+  border:1px solid #d9c9c1!important;border-radius:0!important;background:#fff!important;
+  color:#49372f!important;font:12px var(--sans)!important;outline:none!important;box-shadow:none!important;
+  transition:border-color .25s,box-shadow .25s!important
+}
+.newsletter-form-area .ml-form-fieldRow input:focus{border-color:#ad8875!important;box-shadow:0 0 0 3px #ad88751c!important}
+.newsletter-form-area .ml-form-fieldRow input::placeholder{color:#9a8980!important}
+.newsletter-form-area .ml-form-embedSubmit{float:none!important;width:100%!important;margin:0!important}
+.newsletter-form-area .ml-form-embedSubmit button{
+  display:flex!important;align-items:center!important;justify-content:center!important;gap:12px!important;
+  width:100%!important;min-height:50px!important;padding:13px 18px!important;border:1px solid #f2b0be!important;
+  border-radius:0!important;background:#f2b0be!important;color:#fff!important;
+  font:700 10px var(--sans)!important;letter-spacing:.12em!important;text-transform:uppercase!important;
+  transition:background .25s,border-color .25s,transform .25s!important
+}
+.newsletter-form-area .ml-form-embedSubmit button:hover{background:#ad8875!important;border-color:#ad8875!important;transform:translateY(-2px)}
+.newsletter-form-area .ml-form-successContent{padding:8px 0 14px!important}
+.newsletter-form-area .ml-form-successContent h4{font-size:clamp(29px,3.4vw,39px)!important;color:#ad8875!important}
+.newsletter-form-area .ml-form-successContent p{font-size:13px!important}
+.newsletter-form-area .ml-form-successContent .newsletter-signoff{margin-top:18px!important;color:#ad8875!important;font:italic 18px var(--serif)!important}
+.newsletter-privacy-note{font:9px/1.6 var(--sans);color:#9a8980;margin:15px 0 0;text-align:center}
+.newsletter-paper-bottom{display:flex;justify-content:space-between;gap:12px;margin-top:28px;padding-top:14px;border-top:1px solid #ad887533;font:7px var(--sans);letter-spacing:.13em;color:#ad8875}
+.newsletter-paper-caption{position:absolute;right:-18px;bottom:-28px;font:italic 12px var(--serif);color:#805e61;transform:rotate(-4deg)}
+.newsletter-footer-note{grid-column:1/-1;display:flex;justify-content:center;align-items:center;gap:14px;margin-top:10px;font:italic 17px var(--serif);color:#805e61}
+.newsletter-footer-note span{font-size:15px}
+.newsletter-orbit{position:absolute;z-index:0;border:1px solid #fff6;border-radius:50%;pointer-events:none}
+.newsletter-orbit-one{width:min(74vw,850px);aspect-ratio:1;left:-28%;top:4%;animation:newsletter-orbit 34s linear infinite}
+.newsletter-orbit-two{width:min(56vw,620px);aspect-ratio:1;right:-19%;bottom:-27%;border-style:dashed;animation:newsletter-orbit 42s linear infinite reverse}
+.newsletter-floating{position:absolute;z-index:0;color:#fff9;font-family:var(--serif);pointer-events:none}
+.newsletter-float-a{top:17%;right:13%;font-size:42px;animation:newsletter-drift 7s ease-in-out infinite}
+.newsletter-float-b{bottom:18%;left:12%;font-size:30px;animation:newsletter-drift 8s 1s ease-in-out infinite}
+.newsletter-float-c{top:68%;right:8%;font-size:25px;animation:newsletter-drift 6s .5s ease-in-out infinite}
+@keyframes newsletter-paper-float{0%,100%{transform:translateY(0) rotate(1.5deg)}50%{transform:translateY(-12px) rotate(-.5deg)}}
+@keyframes newsletter-stamp-drift{0%,100%{translate:0 0;rotate:7deg}50%{translate:0 -5px;rotate:3deg}}
+@keyframes newsletter-orbit{to{transform:rotate(360deg)}}
+@keyframes newsletter-drift{0%,100%{transform:translate3d(0,0,0) rotate(-8deg)}50%{transform:translate3d(8px,-16px,0) rotate(8deg)}}
+@media(max-width:760px){
+ .newsletter-postscript{min-height:0;padding:76px 6vw 66px}
+ .newsletter-inner{grid-template-columns:1fr;gap:34px;min-height:0;padding:16px 0}
+ .newsletter-intro{text-align:center}
+ .newsletter-kicker{justify-content:center;margin-bottom:20px;font-size:8px}
+ .newsletter-intro h2{font-size:clamp(57px,15vw,78px);margin-bottom:18px}
+ .newsletter-intro>p{font-size:12px;max-width:330px;margin:auto}
+ .newsletter-desktop-break{display:none}
+ .newsletter-paper-wrap{width:min(100%,480px);transform:rotate(.7deg)}
+ .newsletter-paper{padding:27px 24px}
+ .newsletter-stamp{top:83px;right:25px;width:45px;height:54px}
+ .newsletter-paper-rule{margin:23px 0 20px}
+ .newsletter-paper-bottom{font-size:6px}
+ .newsletter-paper-caption{right:2px;bottom:-24px}
+ .newsletter-footer-note{margin-top:0}
+ .newsletter-orbit-one{width:120vw;left:-75%;top:20%}
+ .newsletter-orbit-two{width:95vw;right:-55%;bottom:-10%}
+ .newsletter-float-a{top:12%;right:8%}.newsletter-float-b{bottom:12%;left:7%}.newsletter-float-c{top:54%;right:4%}
+}
+@media(prefers-reduced-motion:reduce){
+ .newsletter-paper-wrap,.newsletter-stamp,.newsletter-orbit,.newsletter-floating{animation:none!important}
+ .newsletter-form-area .ml-form-embedSubmit button{transition:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -922,7 +1032,7 @@ footer{padding-top:80px}
 
 <div class="scroll-progress" aria-hidden="true"><span></span></div>
 <div class="announcement ticker-announcement"><div class="announcement-track"><span>Rellena el formulario y consigue un descuento exclusivo en nuestra apertura 💌</span><span>Rellena el formulario y consigue un descuento exclusivo en nuestra apertura 💌</span></div></div>
-<header><nav class="nav"><a class="logo" href="#inicio" aria-label="Postella, inicio"><img src="postella-logo.png" alt="postella"></a><button class="menu" aria-label="Abrir menú">☰</button><div class="links"><a href="#colecciones">colecciones</a><a href="#historia">sobre postella</a><a href="#visitanos">visítanos</a><a href="#formulario">formulario</a><a href="mailto:hi@postellapaper.com">contacto ↗</a></div></nav></header>
+<header><nav class="nav"><a class="logo" href="#inicio" aria-label="Postella, inicio"><img src="postella-logo.png" alt="postella"></a><button class="menu" aria-label="Abrir menú">☰</button><div class="links"><a href="#colecciones">colecciones</a><a href="#historia">sobre postella</a><a href="#visitanos">visítanos</a><a href="#formulario">formulario</a><a href="#newsletter">newsletter 💌</a><a href="mailto:hi@postellapaper.com">contacto ↗</a></div></nav></header>
 <main>
 <section class="hero" id="inicio"><div class="reveal"><h1>no todo cabe<br><em>en un mensaje.</em></h1></div>
 <div class="art reveal" data-parallax>
@@ -1005,30 +1115,82 @@ footer{padding-top:80px}
   </div>
 </section>
 
-<section class="postscript">
-  <div class="postscript-inner reveal">
-    <p>send a little<br><em>love.</em></p>
-    <button class="love-card-button" type="button" aria-label="Girar postal de postella" aria-pressed="false">
-      <span class="love-card-inner">
-        <span class="love-card-face love-card-front">
-          <span class="love-card-kicker">a little something from</span>
-          <span class="love-card-wordmark">postella</span>
-          <span class="love-card-stamp">POST<br>✦<br>LOVE</span>
-          <span class="love-card-heart"><span>♡</span></span>
-          <span class="love-card-title">send a little<br>love.</span>
-          <span class="love-card-footer">de madrid al mundo · est. 2026</span>
-        </span>
-        <span class="love-card-face love-card-back">
-          <span class="back-top">postella</span>
-          <span class="back-message">las cosas bonitas<br>merecen <em>llegar.</em></span>
-          <span class="back-note">Una postal, un recuerdo, unas palabras que se quedan. Porque hay cosas que merecen llegar mucho más lejos.</span>
-          <span class="back-sign">with love, always. ♡</span>
-        </span>
-      </span>
-    </button>
-    <span class="love-card-hint">toca la postal para girarla</span>
+<section class="postscript newsletter-postscript" id="newsletter">
+  <div class="newsletter-orbit newsletter-orbit-one" aria-hidden="true"></div>
+  <div class="newsletter-orbit newsletter-orbit-two" aria-hidden="true"></div>
+  <span class="newsletter-floating newsletter-float-a" aria-hidden="true">♡</span>
+  <span class="newsletter-floating newsletter-float-b" aria-hidden="true">✳</span>
+  <span class="newsletter-floating newsletter-float-c" aria-hidden="true">💌</span>
+  <div class="postscript-inner newsletter-inner reveal">
+    <div class="newsletter-intro">
+      <span class="newsletter-kicker"><i></i> una pequeña nota de postella <i></i></span>
+      <h2>send a little<br><em>love.</em></h2>
+      <p>novedades, nuevas colecciones y pequeñas sorpresas.<br class="newsletter-desktop-break"> una cartita nuestra, directamente en tu bandeja de entrada.</p>
+    </div>
+    <div class="newsletter-paper-wrap">
+      <div class="newsletter-paper-shadow" aria-hidden="true"></div>
+      <div class="newsletter-paper">
+        <div class="newsletter-paper-top">
+          <span class="newsletter-wordmark">postella</span>
+          <span class="newsletter-postmark">MADRID<br>EST. 2026</span>
+        </div>
+        <div class="newsletter-stamp" aria-hidden="true"><span>💌</span><small>WITH LOVE</small></div>
+        <div class="newsletter-paper-rule"></div>
+        <div class="newsletter-form-area">
+          <div id="mlb2-48330832" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-48330832">
+            <div class="ml-form-align-center">
+              <div class="ml-form-embedWrapper embedForm">
+                <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                  <div class="ml-form-embedContent">
+                    <h4>una pequeña nota de postella</h4>
+                    <p>novedades, nuevas colecciones y pequeñas sorpresas. una cartita nuestra directamente en tu bandeja de entrada.</p>
+                  </div>
+                  <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2782629/forms/203694804748469995/subscribe" data-code="" method="post" target="_blank">
+                    <div class="ml-form-formContent">
+                      <div class="ml-form-fieldRow ml-last-item">
+                        <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                          <input aria-label="correo electrónico" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="tu correo electrónico" autocomplete="email" required>
+                        </div>
+                      </div>
+                    </div>
+                    <input type="hidden" name="ml-submit" value="1">
+                    <div class="ml-form-embedSubmit">
+                      <button type="submit" class="primary">quiero recibir cartitas <span aria-hidden="true">↗</span></button>
+                      <button disabled="disabled" style="display:none" type="button" class="loading"><span class="ml-form-embedSubmitLoad"></span><span class="sr-only">cargando...</span></button>
+                    </div>
+                    <input type="hidden" name="anticsrf" value="true">
+                  </form>
+                </div>
+                <div class="ml-form-successBody row-success" style="display:none">
+                  <div class="ml-form-successContent">
+                    <h4>¡ya estás en nuestra lista! 💌</h4>
+                    <p>gracias por formar parte de postella. a partir de ahora recibirás nuestras novedades, nuevas colecciones y pequeñas sorpresas.</p>
+                    <p class="newsletter-signoff">con cariño, postella ♡</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <p class="newsletter-privacy-note">solo cosas bonitas en tu bandeja de entrada. podrás darte de baja cuando quieras.</p>
+        </div>
+        <div class="newsletter-paper-bottom">
+          <span>DE MADRID AL MUNDO</span><span>UNA POSTAL, UN RECUERDO</span>
+        </div>
+      </div>
+      <span class="newsletter-paper-caption">a little note, just for you</span>
+    </div>
+    <div class="newsletter-footer-note"><span>💌</span> con cariño, postella <span>💌</span></div>
   </div>
 </section>
+<script>
+  function ml_webform_success_48330832() {
+    var $ = ml_jQuery || jQuery;
+    $('.ml-subscribe-form-48330832 .row-success').show();
+    $('.ml-subscribe-form-48330832 .row-form').hide();
+  }
+</script>
+<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
+<script>fetch("https://assets.mailerlite.com/jsonp/2782629/forms/203694804748469995/takel")</script>
 
 
 
@@ -1053,7 +1215,7 @@ footer{padding-top:80px}
   </div>
 </section>
 </main>
-<footer><div class="foot"><div><div class="footlogo"><img src="postella-logo.png" alt="postella"></div><div style="font:italic 16px var(--serif)">with love, always.</div></div><div class="footquote">“Some things are too lovely not to share.”</div><div class="footlinks"><a href="#colecciones">colecciones</a><a href="#historia">sobre nosotros</a><a href="mailto:hi@postellapaper.com">contacto</a></div></div><div class="legal"><span>© 2026 postella</span><span>made of little moments ♡</span></div></footer>
+<footer><div class="foot"><div><div class="footlogo"><img src="postella-logo.png" alt="postella"></div><div style="font:italic 16px var(--serif)">with love, always.</div></div><div class="footquote">“Some things are too lovely not to share.”</div><div class="footlinks"><a href="#colecciones">colecciones</a><a href="#historia">sobre nosotros</a><a href="#newsletter">newsletter 💌</a><a href="mailto:hi@postellapaper.com">contacto</a></div></div><div class="legal"><span>© 2026 postella</span><span>made of little moments ♡</span></div></footer>
 <script>
 const btn=document.querySelector('.menu'),links=document.querySelector('.links');
 if(btn && links){
@@ -1191,14 +1353,6 @@ if(window.matchMedia('(hover:hover) and (pointer:fine)').matches &&
    surface.addEventListener('pointermove',e=>{const r=surface.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;object.style.transform=`perspective(900px) rotateX(${-y*5}deg) rotateY(${x*6}deg) translateZ(8px)`});
    surface.addEventListener('pointerleave',()=>{object.style.transform=''});
   });
- }
- const loveCard=document.querySelector('.love-card-button');
- if(loveCard){
-  loveCard.addEventListener('click',()=>{const flipped=loveCard.classList.toggle('is-flipped');loveCard.setAttribute('aria-pressed',String(flipped));});
-  if(!reduced&&window.matchMedia('(hover:hover) and (pointer:fine)').matches){
-   loveCard.addEventListener('pointermove',e=>{const r=loveCard.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;loveCard.style.animationPlayState='paused';loveCard.style.transform=`translateY(-8px) rotateX(${-y*13}deg) rotateY(${x*15}deg)`});
-   loveCard.addEventListener('pointerleave',()=>{loveCard.style.transform='';loveCard.style.animationPlayState='running'});
-  }
  }
 })();
 
