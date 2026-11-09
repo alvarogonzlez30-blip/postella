@@ -516,6 +516,49 @@ footer{padding-top:80px}
  .stationery-visual .notebook,.stationery-visual .paper-stack,.stationery-visual .pencil,.stationery-visual .paperclip,.gift-box,.gift-tag,.gift-bow-left,.gift-bow-right,.gift-spark,.visit-finale:before,.visit-finale h2 em,.finale-letter,.finale-stamp,.finale-signoff span{animation:none!important}
 }
 
+
+/* FINAL MOBILE + MOTION REFINEMENT */
+.hero h1{max-width:780px}
+.itemvisual{aspect-ratio:1.12;max-height:440px;position:relative}
+.itemlabel{padding:13px 2px 15px;align-items:center}
+.itemlabel h3{font-size:clamp(17px,1.7vw,22px);line-height:1.05}
+.itemlabel>span{font-size:15px;transition:transform .35s ease}
+.item:hover .itemlabel>span{transform:translate(4px,-4px)}
+.itemvisual .collection-photo,.itemvisual .stationery-stilllife,.itemvisual .gift-stilllife{will-change:transform}
+.item:nth-child(1) .collection-photo{animation:postcard-hover 6.5s ease-in-out infinite}
+.item:nth-child(2) .stationery-stilllife{animation:stationery-hover 7s ease-in-out infinite}
+.item:nth-child(3) .gift-stilllife{animation:gift-hover 6s ease-in-out infinite}
+.item:nth-child(1):hover .collection-photo,.item:nth-child(2):hover .stationery-stilllife,.item:nth-child(3):hover .gift-stilllife{animation-play-state:paused}
+@keyframes postcard-hover{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-10px) rotate(1.5deg)}}
+@keyframes stationery-hover{0%,100%{translate:0 0;rotate:-2deg}50%{translate:0 -9px;rotate:1deg}}
+@keyframes gift-hover{0%,100%{translate:0 0;rotate:-1deg}50%{translate:0 -11px;rotate:1.5deg}}
+.hero h1 em{display:inline-block;animation:headline-arrive 1.1s cubic-bezier(.2,.8,.2,1) both}
+@keyframes headline-arrive{from{opacity:0;transform:translateY(24px) skewY(3deg)}to{opacity:1;transform:translateY(0) skewY(0)}}
+@media(max-width:760px){
+ .hero h1{font-size:clamp(51px,13.5vw,82px);line-height:.9;letter-spacing:-.085em;max-width:100%}
+ section.content{padding:66px 6vw 78px}
+ .heading{margin-bottom:24px}
+ .heading h2{font-size:clamp(42px,10vw,58px)}
+ .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 14px}
+ .itemvisual{aspect-ratio:1.08;height:auto;max-height:205px}
+ .item:nth-child(3){grid-column:1/-1}
+ .item:nth-child(3) .itemvisual{width:calc(50% - 7px);margin-inline:auto}
+ .itemlabel{padding:11px 1px 13px}
+ .itemlabel h3{font-size:clamp(16px,4.3vw,19px);letter-spacing:-.025em}
+ .itemlabel>span{font-size:13px}
+ .item-scribble{font-size:10px;right:12px;bottom:12px}
+ .item-number{font-size:8px}
+ .hero h1 em{padding-bottom:.05em}
+}
+@media(max-width:380px){
+ .grid{gap:20px 10px}
+ .itemvisual{max-height:175px}
+ .itemlabel h3{font-size:15px}
+}
+@media(prefers-reduced-motion:reduce){
+ .item:nth-child(1) .collection-photo,.item:nth-child(2) .stationery-stilllife,.item:nth-child(3) .gift-stilllife,.hero h1 em{animation:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -523,7 +566,7 @@ footer{padding-top:80px}
 <div class="announcement ticker-announcement"><div class="announcement-track"><span>Rellena el formulario y consigue un descuento exclusivo en nuestra apertura 💌</span><span>Rellena el formulario y consigue un descuento exclusivo en nuestra apertura 💌</span></div></div>
 <header><nav class="nav"><a class="logo" href="#inicio" aria-label="Postella, inicio"><img src="postella-logo.png" alt="postella"></a><button class="menu" aria-label="Abrir menú">☰</button><div class="links"><a href="#colecciones">colecciones</a><a href="#historia">sobre postella</a><a href="#visitanos">visítanos</a><a href="#formulario">formulario</a><a href="mailto:hi@postellapaper.com">contacto ↗</a></div></nav></header>
 <main>
-<section class="hero" id="inicio"><div class="reveal"><div class="eyebrow">madrid · paper goods</div><h1>postales<br><em>con alma.</em></h1><a class="button" href="#colecciones">explorar <span>↓</span></a></div>
+<section class="hero" id="inicio"><div class="reveal"><div class="eyebrow">madrid · paper goods</div><h1>no todo cabe<br><em>en un mensaje.</em></h1><a class="button" href="#colecciones">explorar <span>↓</span></a></div>
 <div class="art reveal" data-parallax>
   <div class="art-index">postella · madrid <span>💌</span></div>
   <div class="orb"></div>
@@ -601,9 +644,7 @@ footer{padding-top:80px}
   </div>
 </section>
 
-<section class="story" id="historia"><div class="storyart reveal">
-  <div class="paper-sculpture" aria-hidden="true"><span class="sheet sheet-back"></span><span class="sheet sheet-mid"></span><span class="sheet sheet-front"><i></i></span><span class="sculpture-dot"></span></div>
-</div><div class="storycopy reveal"><div class="eyebrow">hecho para guardar momentos</div><h2>pequeños detalles.<br><em>grandes recuerdos.</em></h2></div></section>
+
 
 
 <section class="visit visit-finale" id="visitanos">
