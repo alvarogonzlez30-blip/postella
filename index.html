@@ -134,7 +134,7 @@ header.scrolled{background:#eeeae7f5;box-shadow:0 8px 30px #49372f0c}
 .storyart:hover .letter{transform:rotate(2deg) translateY(-9px)}
 .visit{position:relative;overflow:hidden}
 .visit:before{content:"💌";position:absolute;left:9%;top:17%;font-size:45px;color:#f2b0be;opacity:.7;animation:slow-spin 24s linear infinite}
-.visit:after{content:"♡";position:absolute;right:10%;bottom:18%;font:60px var(--serif);color:#ad887555;transform:rotate(12deg)}
+.visit:after{content:none}
 footer{position:relative;overflow:hidden}
 footer:before{content:"";position:absolute;top:0;left:7vw;right:7vw;height:1px;background:#ffffff66}
 .footlogo img{filter:drop-shadow(0 5px 10px #49372f18)}
@@ -204,6 +204,162 @@ footer:before{content:"";position:absolute;top:0;left:7vw;right:7vw;height:1px;b
 }
 @media(prefers-reduced-motion:reduce){.mail-scene{height:auto}.mail-scene-sticky{position:relative;height:auto;min-height:650px}.scroll-postcard{transform:none!important}}
 
+
+/* More tactile motion, less decoration: envelopes, paper and gentle reveals */
+.visit{min-height:760px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding-top:80px;padding-bottom:100px}
+.visit-envelope{width:190px;height:135px;position:relative;margin:0 auto 48px;perspective:700px;filter:drop-shadow(0 18px 18px #49372f18);transform:rotate(-7deg)}
+.visit-envelope-back{position:absolute;inset:0;background:#d9b9a9;clip-path:polygon(0 0,100% 0,100% 100%,0 100%);border:1px solid #b99280}
+.visit-letter{position:absolute;z-index:1;left:17px;right:17px;top:7px;height:120px;background:#fffaf4;border:1px solid #eadfd7;display:flex;align-items:center;justify-content:center;flex-direction:column;font:italic 22px/1.1 var(--serif);color:#49372f;text-align:center;transform:translateY(0);transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.visit-letter em{color:#ad8875}.visit-letter span{font:18px var(--sans);margin-top:8px}
+.visit-envelope-flap{position:absolute;z-index:2;inset:0;background:#edc7c6;clip-path:polygon(0 0,50% 62%,100% 0);transform-origin:top;transition:transform .8s cubic-bezier(.2,.8,.2,1);backface-visibility:hidden}
+.visit-envelope:hover .visit-envelope-flap{transform:rotateX(180deg)}
+.visit-envelope:hover .visit-letter{transform:translateY(-48px) rotate(2deg)}
+.visit-envelope{animation:envelope-hover 5s ease-in-out infinite}
+@keyframes envelope-hover{0%,100%{translate:0 0}50%{translate:0 -12px}}
+.itemvisual{transition:transform .7s cubic-bezier(.2,.8,.2,1),filter .7s}
+.itemvisual .fakecard{will-change:transform}
+.item:nth-child(1) .fakecard{transform:rotate(-9deg) translateY(10px)}
+.item:nth-child(2) .fakecard{transform:rotate(7deg) translateY(-8px)}
+.item:nth-child(3) .fakecard{transform:rotate(-4deg) translateY(7px)}
+.item:hover .fakecard{transform:rotate(0) translateY(-8px) scale(1.06)}
+.storyart .letter{animation:letter-bob 6s ease-in-out infinite}
+@keyframes letter-bob{0%,100%{translate:0 0;rotate:7deg}50%{translate:0 -13px;rotate:3deg}}
+.postscript-inner{position:relative}
+.postscript-inner:before{content:"";position:absolute;left:50%;top:-8px;width:16px;height:16px;border-radius:50%;background:#f2b0be;transform:translateX(-50%)}
+.reveal{will-change:opacity,transform}
+@media(max-width:760px){.visit{min-height:650px}.visit-envelope{margin-bottom:38px}.visit h2{font-size:clamp(48px,12vw,70px)}}
+
+
+/* POSTELLA — art-directed, scroll-led edition */
+:root{--cream:#eeeae7;--pink:#f2b0be;--brown:#ad8875;--ink:#49372f}
+body{background:#eeeae7}
+.announcement.ticker-announcement{font-size:9px;padding:7px 0;letter-spacing:.18em}
+header{background:#eeeae7f2}
+.hero{min-height:calc(100svh - 105px);padding-top:6vh;padding-bottom:6vh;grid-template-columns:.9fr 1.1fr;overflow:hidden;position:relative}
+.hero:after{content:"";position:absolute;left:7vw;right:7vw;bottom:20px;height:1px;background:#ad887566}
+.hero .eyebrow{font-size:9px}
+.hero h1{font-size:clamp(76px,11vw,156px);line-height:.78;letter-spacing:-.095em;margin:24px 0 34px;max-width:650px}
+.hero h1 em{font-style:italic;color:#ad8875}
+.hero .button{margin-top:0;border:0;border-bottom:1px solid #ad8875;border-radius:0;padding:12px 0;font-size:9px}
+.art{height:min(76vh,760px);min-height:500px;isolation:isolate}
+.art .orb{width:min(39vw,540px);height:min(39vw,540px);background:#f2b0be;opacity:.9;filter:none;animation:orb-breathe 8s ease-in-out infinite}
+.art-index,.postmark,.note,.hero-scroll{display:none}
+.postcard{width:clamp(205px,22vw,300px);height:clamp(285px,31vw,405px);padding:11px;box-shadow:0 35px 75px #49372f28;border:1px solid #e4d6cc;will-change:transform}
+.p1{transform:rotate(-13deg) translate(-75px,8px);z-index:2}
+.p2{transform:rotate(11deg) translate(75px,-18px);z-index:3}
+.art .p1{animation:card-drift-one 7s ease-in-out infinite}
+.art .p2{animation:card-drift-two 8s ease-in-out infinite}
+.art:hover .p1{transform:rotate(-19deg) translate(-105px,-5px) scale(1.04)}
+.art:hover .p2{transform:rotate(17deg) translate(105px,-35px) scale(1.04)}
+.flower{width:145px;height:145px}
+.flower i{left:48px;width:49px;height:76px;transform-origin:24px 72px}
+.flower b{left:55px;top:55px;width:36px;height:36px}
+.inner strong{font-size:27px}
+.join-section{padding:100px 7vw;background:#ad8875;color:#fffaf6;position:relative;overflow:hidden}
+.join-section:before{content:"postella";position:absolute;left:-3vw;bottom:-.32em;font:700 clamp(130px,24vw,330px)/.8 var(--serif);letter-spacing:-.1em;color:#ffffff0c;pointer-events:none}
+.join-wrap{position:relative;z-index:1;max-width:1250px}
+.join-copy h2{font-size:clamp(55px,8vw,105px);line-height:.88;letter-spacing:-.08em}
+.join-copy h2 em{color:#f2b0be}
+.join-copy p,.join-note{display:none}
+.join-cta-card{background:#f8f0e8;color:#49372f;border:0;box-shadow:0 30px 70px #49372f22;transform:rotate(2deg);transition:transform .6s}
+.join-cta-card:hover{transform:rotate(0) translateY(-8px)}
+.join-card-heart{color:#f2b0be}
+.join-card-text,.join-card-foot{display:none}
+.join-button{background:#49372f;color:#fffaf6;border:0}
+.ticker{padding:22px 0;background:#f2b0be;overflow:hidden}
+.ticker div{font-size:clamp(28px,4vw,54px);letter-spacing:-.05em;animation:marquee 19s linear infinite}
+section.content{padding:120px 7vw 140px}
+.heading{margin-bottom:55px}
+.heading h2{font-size:clamp(64px,10vw,132px);letter-spacing:-.09em;line-height:.8}
+.grid{gap:24px}
+.itemvisual{height:clamp(330px,42vw,560px);display:grid;place-items:center;overflow:hidden;background:#e4d1c5}
+.item:nth-child(2) .itemvisual{background:#d9b5b4}
+.item:nth-child(3) .itemvisual{background:#b18e7d}
+.item-number,.item-scribble{display:none}
+.fakecard{width:58%;height:72%;padding:12px;background:#fffaf4;box-shadow:0 28px 60px #49372f28}
+.fakecard>div{height:100%;border:1px solid #ad887566;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;font:italic clamp(28px,4vw,50px)/.95 var(--serif);color:#49372f;position:relative}
+.fakecard>div:after{content:"💌";position:absolute;bottom:18px;font:20px var(--sans);color:#ad8875}
+.fakecard small{font:8px var(--sans);letter-spacing:.15em;margin-top:16px}
+.item:nth-child(1) .fakecard{transform:rotate(-8deg)}
+.item:nth-child(2) .fakecard{transform:rotate(7deg)}
+.item:nth-child(3) .fakecard{transform:rotate(-5deg)}
+.item:hover .fakecard{transform:rotate(0) scale(1.08)!important}
+.itemlabel h3{font:italic 28px var(--serif)}
+.mail-scene{height:260vh;background:#f4e5e2}
+.mail-scene-sticky{grid-template-columns:1fr;padding:4vh 6vw}
+.mail-scene-heading{position:absolute;top:8vh;left:7vw;z-index:3;max-width:none;text-align:left}
+.mail-scene-heading>span{display:none}
+.mail-scene-heading h2{font-size:clamp(46px,8vw,100px);line-height:.82;letter-spacing:-.08em;margin:0}
+.mail-scene-stage{height:100%;min-height:500px;max-height:none}
+.mail-orbit{display:none}
+.scroll-postcard{width:clamp(250px,34vw,430px);aspect-ratio:.72;filter:drop-shadow(0 35px 30px #49372f25)}
+.scroll-postcard-front,.scroll-postcard-back{padding:28px;background:#fffaf4}
+.scroll-postcard-front strong{font-size:clamp(36px,5vw,64px);letter-spacing:-.06em}
+.scroll-flower{transform:scale(1.35);margin:auto}
+.scene-caption{display:none}
+.scene-end-note{bottom:8%;font-size:clamp(15px,2vw,22px)}
+.postscript{height:95vh;min-height:600px;display:grid;place-items:center;background:#f2b0be;overflow:hidden}
+.postscript-inner{border:0;padding:0;margin:0;width:100%;height:100%;display:grid;place-items:center}
+.postscript-top,.postscript-bottom{display:none}
+.postscript-inner p{position:absolute;bottom:8%;left:7%;font:italic clamp(60px,10vw,130px)/.8 var(--serif);letter-spacing:-.08em;margin:0;color:#49372f}
+.postscript-inner p em{color:#fffaf4}
+.giant-envelope{position:relative;width:min(65vw,620px);height:min(43vw,410px);min-height:260px;background:#fffaf4;box-shadow:0 35px 80px #49372f22;transform:rotate(-8deg);transition:transform 1s cubic-bezier(.2,.8,.2,1)}
+.giant-envelope:before,.giant-envelope:after{content:"";position:absolute;inset:0}
+.giant-envelope:before{background:#ead7cb;clip-path:polygon(0 0,50% 57%,100% 0,100% 100%,0 100%)}
+.giant-envelope:after{background:#f7e9df;clip-path:polygon(0 100%,50% 48%,100% 100%)}
+.giant-letter{position:absolute;z-index:1;left:24%;right:24%;top:5%;height:90%;background:#fffdf9;display:grid;place-items:center;font-size:clamp(55px,9vw,115px);box-shadow:0 5px 25px #49372f15;transition:transform .8s}
+.giant-flap{position:absolute;z-index:2;inset:0;background:#f2b0be;clip-path:polygon(0 0,50% 58%,100% 0);transform-origin:top;transition:transform .8s}
+.postscript-inner.show .giant-envelope{transform:rotate(0) scale(1.06)}
+.postscript-inner.show .giant-letter{transform:translateY(-32%) rotate(5deg)}
+.story{padding:140px 8vw;min-height:90vh}
+.storycopy h2{font-size:clamp(60px,9vw,120px);line-height:.82;letter-spacing:-.09em}
+.storycopy p{display:none}
+.visit{min-height:90vh;background:#f7f1e8}
+.visit h2{font-size:clamp(72px,12vw,150px);letter-spacing:-.1em;line-height:.78}
+.visit p{display:none}
+.visit-envelope{transform:scale(1.35) rotate(-7deg);margin-bottom:70px}
+footer{padding-top:80px}
+.footquote,.legal span:nth-child(2){display:none}
+@keyframes card-drift-one{0%,100%{transform:rotate(-13deg) translate(-75px,8px)}50%{transform:rotate(-9deg) translate(-62px,-8px)}}
+@keyframes card-drift-two{0%,100%{transform:rotate(11deg) translate(75px,-18px)}50%{transform:rotate(7deg) translate(88px,-2px)}}
+@keyframes orb-breathe{0%,100%{transform:scale(.96)}50%{transform:scale(1.06)}}
+@media(max-width:760px){
+ .hero{min-height:calc(100svh - 100px);grid-template-columns:1fr;padding:50px 7vw 40px;gap:0}
+ .hero h1{font-size:clamp(68px,17vw,112px);margin:18px 0 25px}
+ .art{height:48vh;min-height:330px;margin-top:0}
+ .art .orb{width:72vw;height:72vw}
+ .postcard{width:clamp(170px,47vw,225px);height:clamp(235px,64vw,310px)}
+ .p1{transform:rotate(-13deg) translate(-42px,8px)}
+ .p2{transform:rotate(11deg) translate(42px,-12px)}
+ .join-section{padding:75px 7vw}
+ .join-wrap{grid-template-columns:1fr;gap:30px}
+ .join-copy h2{font-size:65px}
+ .join-cta-card{max-width:340px;margin:auto}
+ section.content{padding:85px 6vw}
+ .heading h2{font-size:68px}
+ .grid{grid-template-columns:1fr;gap:45px}
+ .itemvisual{height:110vw;max-height:480px}
+ .fakecard{width:62%;height:74%}
+ .mail-scene{height:230vh}
+ .mail-scene-sticky{padding:0 5vw}
+ .mail-scene-heading{top:9vh;left:7vw}
+ .mail-scene-heading h2{font-size:clamp(43px,12vw,65px)}
+ .mail-scene-stage{height:100vh}
+ .scroll-postcard{width:68vw}
+ .postscript{height:85vh;min-height:560px}
+ .giant-envelope{width:82vw;height:55vw;min-height:230px}
+ .postscript-inner p{font-size:65px;bottom:10%}
+ .story{padding:100px 7vw;min-height:760px;grid-template-columns:1fr}
+ .storyart{height:400px}
+ .storycopy h2{font-size:68px}
+ .visit{min-height:80vh;padding:80px 7vw}
+ .visit h2{font-size:76px}
+}
+@media(prefers-reduced-motion:reduce){
+ .art .p1,.art .p2,.art .orb,.visit-envelope,.storyart .letter{animation:none}
+ .postcard{transition:none}
+}
+
 </style>
 </head>
 <body>
@@ -211,17 +367,15 @@ footer:before{content:"";position:absolute;top:0;left:7vw;right:7vw;height:1px;b
 <div class="announcement ticker-announcement"><div class="announcement-track"><span>Rellena el formulario y consigue un descuento exclusivo en nuestra apertura 💌</span><span>Rellena el formulario y consigue un descuento exclusivo en nuestra apertura 💌</span></div></div>
 <header><nav class="nav"><a class="logo" href="#inicio" aria-label="Postella, inicio"><img src="postella-logo.png" alt="Postella"></a><button class="menu" aria-label="Abrir menú">☰</button><div class="links"><a href="#colecciones">colecciones</a><a href="#historia">sobre postella</a><a href="#visitanos">visítanos</a><a href="#formulario">formulario</a><a href="mailto:hi@postellapaper.com">contacto ↗</a></div></nav></header>
 <main>
-<section class="hero" id="inicio"><div class="reveal"><div class="eyebrow">de madrid al mundo, tus postales.</div><h1>small things,<br><em>big memories.</em></h1><p class="intro">Postales que cuentan historias, diseños que despiertan recuerdos y pequeños tesoros hechos para quedarse contigo.</p><a class="button" href="#colecciones">descubre postella <span>↗</span></a></div>
+<section class="hero" id="inicio"><div class="reveal"><div class="eyebrow">madrid · paper goods</div><h1>postales<br><em>con alma.</em></h1><a class="button" href="#colecciones">explorar <span>↓</span></a></div>
 <div class="art reveal" data-parallax><div class="art-index">A LITTLE PIECE OF POSTELLA <span>№ 001</span></div><div class="orb"></div><div class="postcard p1"><div class="inner"><span class="stamp">POSTELLA · 001</span><div class="flower"><i></i><i></i><i></i><i></i><i></i><i></i><b></b></div><strong>with love,</strong><small>made to be kept</small></div></div><div class="postcard p2"><div class="inner"><span class="stamp">A LITTLE NOTE</span><div style="text-align:center;font:italic 34px var(--serif);color:var(--brown);margin:auto">wish<br>you were<br>here ♡</div><strong>postella</strong><small>send a little joy</small></div></div><div class="note">a postcard kind of day ✿</div><div class="postmark">MADRID<br>EST. 2026</div><div class="hero-scroll">SCROLL TO EXPLORE <span>↓</span></div></div></section>
 
 <section class="join-section" id="formulario">
   <div class="join-wrap">
     <div class="join-copy reveal">
-      <div class="join-kicker">tu historia también forma parte</div>
-      <h2>be part of<br><em>postella.</em></h2>
-      <p>postella empieza contigo. Responde a este pequeño formulario y hazte partícipe de nuestro universo: queremos conocer tus gustos, tus ideas y lo que te gustaría encontrar en nuestra tienda.</p>
-      <p>Tu opinión nos ayudará a dar forma a este proyecto desde el principio. Porque postella no sería lo mismo sin las personas que hay detrás de cada postal.</p>
-      <div class="join-note"><span>♡</span> un pequeño gesto, una gran historia.</div>
+      <div class="join-kicker">forma parte desde el principio</div>
+      <h2>postella<br><em>empieza contigo.</em></h2>
+      <div class="join-note"><span>💌</span>
     </div>
     
     <div class="reveal">
@@ -230,11 +384,11 @@ footer:before{content:"";position:absolute;top:0;left:7vw;right:7vw;height:1px;b
         <div class="join-card-heart">♡</div>
         <p class="join-card-overline">queremos conocerte</p>
         <h3>¿te unes a<br><em>postella?</em></h3>
-        <p class="join-card-text">Dedícanos un par de minutos. Tu opinión nos ayudará a construir este universo desde el principio.</p>
+
         <a class="join-button" href="https://page.typeform.com/p/01M705KFP1EMXR85QB427BENS2" target="_blank" rel="noopener noreferrer">
           quiero formar parte <span aria-hidden="true">↗</span>
         </a>
-        <p class="join-card-foot">un pequeño gesto, una gran historia.</p>
+
       </div>
       <div class="join-caption">de madrid al mundo, tus postales</div>
     </div>
@@ -242,7 +396,7 @@ footer:before{content:"";position:absolute;top:0;left:7vw;right:7vw;height:1px;b
 </section>
 
 <div class="ticker"><div><span>collect moments 💌 send love 💌 keep memories 💌 little things matter 💌</span><span>collect moments 💌 send love 💌 keep memories 💌 little things matter 💌</span></div></div>
-<section class="content" id="colecciones"><div class="heading reveal"><div><div class="eyebrow">cosas bonitas para guardar</div><h2>the little<br>collections.</h2></div><p>Diseños originales para enviar, regalar, coleccionar o simplemente dejar a la vista.</p></div><div class="grid">
+<section class="content" id="colecciones"><div class="heading reveal"><div><div class="eyebrow">objetos para querer</div><h2>colecciones.</h2></div></div><div class="grid">
 <article class="item reveal"><div class="itemvisual"><span class="item-number">01 / 03</span><div class="fakecard"><div><span>hello,<br>sunshine</span><br><small>postella postcard club</small></div></div><span class="item-scribble">send a little joy</span></div><div class="itemlabel"><h3>Postales</h3><span>↗</span></div></article>
 <article class="item reveal"><div class="itemvisual"><span class="item-number">02 / 03</span><div class="fakecard"><div><span>notes<br>to self</span><br><small>little everyday rituals</small></div></div><span class="item-scribble">made for your desk</span></div><div class="itemlabel"><h3>Papelería</h3><span>↗</span></div></article>
 <article class="item reveal"><div class="itemvisual"><span class="item-number">03 / 03</span><div class="fakecard"><div><span>made<br>with love</span><br><small>tiny things, happy hearts</small></div></div><span class="item-scribble">a gift to keep</span></div><div class="itemlabel"><h3>Pequeños regalos</h3><span>↗</span></div></article>
@@ -281,16 +435,25 @@ footer:before{content:"";position:absolute;top:0;left:7vw;right:7vw;height:1px;b
 
 <section class="postscript">
   <div class="postscript-inner reveal">
-    <span class="postscript-top">A NOTE FROM POSTELLA · MADRID</span>
-    <p>“Hay cosas que no deberían quedarse<br><em>sin enviar.</em>”</p>
-    <div class="postscript-bottom"><span>WRITTEN WITH LOVE</span><span>💌</span><span>POSTELLA POSTAL CLUB</span></div>
+    <div class="giant-envelope" aria-hidden="true"><div class="giant-letter">💌</div><div class="giant-flap"></div></div>
+    <p>send a little<br><em>love.</em></p>
   </div>
 </section>
 
-<section class="story" id="historia"><div class="storyart reveal"><div class="circle"></div><div class="letter">dear<br>you,<br><small style="font:10px var(--sans);letter-spacing:.15em">WITH LOVE, POSTELLA</small></div></div><div class="storycopy reveal"><div class="eyebrow">un poquito de nosotros</div><h2>not just a postcard.<br><em>a feeling.</em></h2><p>Creemos que las cosas pequeñas pueden guardar historias enormes. Por eso imaginamos Postella: un universo de ilustración, creatividad y papelería donde cada diseño tiene algo que contar.</p><p>Queremos recuperar la emoción de recibir algo bonito, tocar el papel, escribir unas palabras y guardar recuerdos que merecen quedarse.</p><a class="button" href="#visitanos">conoce nuestro mundo ↗</a></div></section>
+<section class="story" id="historia"><div class="storyart reveal"><div class="circle"></div><div class="letter">dear<br>you,<br><small style="font:10px var(--sans);letter-spacing:.15em">WITH LOVE, POSTELLA</small></div></div><div class="storycopy reveal"><div class="eyebrow">postella, madrid</div><h2>paper things.<br><em>real feelings.</em></h2></div></section>
 
 
-<section class="visit" id="visitanos"><div class="eyebrow">nos vemos pronto</div><h2>come say <em style="color:var(--brown)">hello.</em></h2><p>Estamos preparando nuestro pequeño rincón en Madrid.<br>Muy pronto podrás descubrir Postella en persona.</p><a class="button" href="https://www.instagram.com/postellapaper/" target="_blank" rel="noreferrer">síguenos en instagram ↗</a></section>
+<section class="visit" id="visitanos">
+  <div class="visit-envelope reveal" aria-hidden="true">
+    <div class="visit-envelope-back"></div>
+    <div class="visit-letter">nos vemos<br><em>muy pronto.</em><span>💌</span></div>
+    <div class="visit-envelope-flap"></div>
+  </div>
+  <div class="eyebrow">madrid · próximamente</div>
+  <h2>come say <em style="color:var(--brown)">hello.</em></h2>
+  <p>Un nuevo rincón creativo está a punto de abrir.</p>
+  <a class="button" href="https://www.instagram.com/postellapaper/" target="_blank" rel="noreferrer">síguenos en instagram <span>↗</span></a>
+</section>
 </main>
 <footer><div class="foot"><div><div class="footlogo"><img src="postella-logo.png" alt="Postella"></div><div style="font:italic 16px var(--serif)">with love, always.</div></div><div class="footquote">“Some things are too lovely not to share.”</div><div class="footlinks"><a href="#colecciones">colecciones</a><a href="#historia">sobre nosotros</a><a href="mailto:hi@postellapaper.com">contacto</a></div></div><div class="legal"><span>© 2026 postella</span><span>made of little moments ♡</span></div></footer>
 <script>
@@ -313,6 +476,7 @@ const obs=new IntersectionObserver(es=>es.forEach(e=>{
     const siblings=[...e.target.parentElement.querySelectorAll(':scope > .reveal')];
     e.target.style.transitionDelay=(Math.max(0,siblings.indexOf(e.target))*90)+'ms';
     e.target.classList.add('show');
+    if(e.target.classList.contains('item')) e.target.classList.add('item-arrived');
     obs.unobserve(e.target);
   }
 }),{threshold:.12});
@@ -350,6 +514,26 @@ window.addEventListener('scroll',()=>{
 },{passive:true});
 window.addEventListener('resize',updateMailScene);
 updateMailScene();
+
+
+const postellaMotion=()=>{
+ const cards=document.querySelectorAll('.postcard');
+ const y=window.scrollY;
+ cards.forEach((card,i)=>{
+   const factor=(i===0?-1:1);
+   const drift=Math.sin(y*.002+i)*7;
+   card.style.setProperty('--scroll-drift',`${drift*factor}px`);
+ });
+ const env=document.querySelector('.giant-envelope');
+ if(env){
+   const r=env.getBoundingClientRect();
+   const progress=Math.max(0,Math.min(1,(window.innerHeight-r.top)/(window.innerHeight+r.height)));
+   const flap=env.querySelector('.giant-flap');
+   if(flap) flap.style.transform=`rotateX(${progress*180}deg)`;
+ }
+};
+window.addEventListener('scroll',postellaMotion,{passive:true});
+postellaMotion();
 
 </script>
 </body></html>
