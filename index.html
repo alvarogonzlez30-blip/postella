@@ -1192,20 +1192,24 @@ footer{padding-top:80px}
   </div>
 </section>
 
+
+/* newsletter: limpieza visual y estado de carga */
+.newsletter-paper-top,
+.newsletter-paper-rule,
+.newsletter-kicker { display:none !important; }
+.newsletter-form-area .ml-form-embedSubmit button.loading,
+.newsletter-form-area .ml-form-embedSubmit button[disabled] { display:none !important; }
+.newsletter-form-area .ml-form-embedSubmit button.primary { display:flex !important; }
+
 <section class="postscript newsletter-postscript" id="newsletter">
   <div class="postscript-inner newsletter-inner reveal">
     <div class="newsletter-intro">
-      <span class="newsletter-kicker"><i></i> postella letters <i></i></span>
       <h2>una pequeña<br><em>nota de postella.</em></h2>
       <p>novedades, nuevas colecciones y pequeñas sorpresas. directamente en tu bandeja de entrada.</p>
     </div>
     <div class="newsletter-paper-wrap">
       <div class="newsletter-paper-shadow" aria-hidden="true"></div>
       <div class="newsletter-paper">
-        <div class="newsletter-paper-top">
-          <span class="newsletter-wordmark">postella</span>
-        </div>
-        <div class="newsletter-paper-rule"></div>
         <div class="newsletter-form-area">
           <div id="mlb2-48330832" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-48330832">
             <div class="ml-form-align-center">
@@ -1225,7 +1229,7 @@ footer{padding-top:80px}
                     </div>
                     <input type="hidden" name="ml-submit" value="1">
                     <div class="ml-form-embedSubmit">
-                      <button type="submit" class="primary">quiero recibir cartitas <span aria-hidden="true">↗</span></button>
+                      <button type="submit" class="primary">quiero recibir cartitas</button>
                       <button disabled="disabled" style="display:none" type="button" class="loading"><span class="ml-form-embedSubmitLoad"></span><span class="sr-only">cargando...</span></button>
                     </div>
                     <input type="hidden" name="anticsrf" value="true">
