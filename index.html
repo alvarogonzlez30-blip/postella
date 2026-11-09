@@ -307,10 +307,10 @@ section.content{padding:120px 7vw 140px}
 .giant-envelope:before,.giant-envelope:after{content:"";position:absolute;inset:0}
 .giant-envelope:before{background:#ead7cb;clip-path:polygon(0 0,50% 57%,100% 0,100% 100%,0 100%)}
 .giant-envelope:after{background:#f7e9df;clip-path:polygon(0 100%,50% 48%,100% 100%)}
-.giant-letter{position:absolute;z-index:1;left:24%;right:24%;top:5%;height:90%;background:#fffdf9;display:grid;place-items:center;font-size:clamp(55px,9vw,115px);box-shadow:0 5px 25px #49372f15;transition:transform .8s}
+.giant-letter{position:absolute;z-index:1;left:24%;right:24%;top:12%;height:90%;background:#fffdf9;display:grid;place-items:center;font-size:clamp(55px,9vw,115px);box-shadow:0 5px 25px #49372f15;transform:translateY(42%);transition:transform 1.05s cubic-bezier(.2,.8,.2,1)}
 .giant-flap{position:absolute;z-index:2;inset:0;background:#f2b0be;clip-path:polygon(0 0,50% 58%,100% 0);transform-origin:top;transition:transform .8s}
 .postscript-inner.show .giant-envelope{transform:rotate(0) scale(1.06)}
-.postscript-inner.show .giant-letter{transform:translateY(-32%) rotate(5deg)}
+.postscript-inner.show .giant-letter{transform:translateY(-25%) rotate(3deg)}
 .story{padding:140px 8vw;min-height:90vh}
 .storycopy h2{font-size:clamp(60px,9vw,120px);line-height:.82;letter-spacing:-.09em}
 .storycopy p{display:none}
@@ -670,7 +670,7 @@ footer{padding-top:80px}
   .scroll-postcard-front:after,.scroll-postcard-back:after { animation:postcard-border-glow 7s ease-in-out infinite; }
 
   .postscript .giant-envelope { animation:envelope-drift 7s ease-in-out infinite; }
-  .postscript .giant-letter { animation:letter-peek 6s ease-in-out infinite; }
+  .postscript .giant-letter { animation:none; }
 
   .finale-letter { animation:finale-letter-drift 6.5s ease-in-out infinite; }
   .finale-letter.letter-b { animation-delay:-1.6s; }
@@ -738,7 +738,7 @@ footer{padding-top:80px}
 .intro-envelope{width:min(56vw,300px);aspect-ratio:1.36;position:relative;filter:drop-shadow(0 24px 28px #49372f20);animation:intro-float 3s ease-in-out infinite}
 .intro-envelope-back{position:absolute;inset:0;background:#d8b9a9;border-radius:3px}
 .intro-letter{position:absolute;left:9%;right:9%;top:7%;height:82%;background:#fffdf8;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:12px;animation:intro-letter-rise 1.7s .55s cubic-bezier(.2,.8,.2,1) both}
-.intro-letter img{width:min(65%,190px);height:auto;object-fit:contain}
+.intro-letter img{width:min(76%,210px);height:auto;object-fit:contain;transform:translateY(-34px)}
 .intro-letter small{font-size:8px;letter-spacing:.22em;color:var(--brown);text-transform:uppercase}
 .intro-flap{position:absolute;inset:0;background:#caa594;clip-path:polygon(0 0,100% 0,50% 57%);transform-origin:top;animation:intro-flap-open 1.1s .45s cubic-bezier(.2,.7,.2,1) both;z-index:3}
 .intro-envelope-front{position:absolute;inset:0;background:linear-gradient(145deg,transparent 49.7%,#e9d6ca 50%),linear-gradient(215deg,transparent 49.7%,#dfc4b5 50%);z-index:2;clip-path:polygon(0 0,50% 56%,100% 0,100% 100%,0 100%)}
@@ -747,7 +747,7 @@ footer{padding-top:80px}
 .intro-caption{font-size:8px;letter-spacing:.24em;text-transform:uppercase;color:var(--brown);opacity:0;animation:intro-wordmark .8s 2s ease forwards}
 .intro-skip{position:absolute;right:25px;bottom:24px;border:0;background:none;color:var(--brown);font:9px var(--sans);letter-spacing:.16em;text-transform:uppercase;padding:12px}
 @keyframes intro-float{0%,100%{transform:translateY(0) rotate(-1deg)}50%{transform:translateY(-9px) rotate(1deg)}}
-@keyframes intro-letter-rise{0%{transform:translateY(35%);opacity:0}100%{transform:translateY(-10%);opacity:1}}
+@keyframes intro-letter-rise{0%{transform:translateY(35%);opacity:0}100%{transform:translateY(-30%);opacity:1}}
 @keyframes intro-flap-open{0%{transform:rotateX(0)}100%{transform:rotateX(180deg)}}
 @keyframes intro-seal-away{to{opacity:0;transform:translate(-50%,-50%) scale(.3)}}
 @keyframes intro-wordmark{to{opacity:1;transform:translateY(0)}}
@@ -757,7 +757,7 @@ footer{padding-top:80px}
 .postcard-photo:hover{box-shadow:0 42px 85px #49372f35;filter:saturate(1.06)}
 .itemvisual{perspective:1100px}
 .collection-photo,.stationery-stilllife,.gift-stilllife{transform-style:preserve-3d;will-change:transform}
-@media(max-width:760px){.postella-intro{min-height:100svh}.intro-envelope{width:min(72vw,280px)}.intro-skip{right:14px;bottom:12px}.postella-cursor{display:none!important}}
+@media(max-width:760px){.postella-intro{min-height:100svh}.intro-envelope{width:min(72vw,280px)}.intro-letter img{width:78%;transform:translateY(-27px)}.intro-skip{right:14px;bottom:12px}.postella-cursor{display:none!important}}
 @media(prefers-reduced-motion:reduce){.postella-intro *,.intro-envelope,.intro-letter,.intro-flap,.intro-seal,.intro-wordmark,.intro-caption{animation:none!important}.postella-intro{transition:none}.postella-cursor{display:none!important}.postcard-photo:after{display:none}}
 
 
