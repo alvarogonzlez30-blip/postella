@@ -453,6 +453,69 @@ footer{padding-top:80px}
 .visit p{margin:30px 0 35px;color:#806e63;font-size:16px}
 @media(max-width:760px){.stationery-stilllife{width:86%;height:78%}.notebook{width:49%;height:74%}.paper-sculpture{width:90%;height:310px}.storyart{min-height:350px}.storycopy h2{font-size:clamp(43px,11vw,70px)}.visit{min-height:540px;padding-top:100px}.visit h2{font-size:clamp(57px,14vw,90px)}}
 
+
+/* MOTION PASS — layered, tactile movement for the new still-life sections */
+.stationery-stilllife,.gift-stilllife{perspective:900px}
+.stationery-visual .notebook{animation:notebook-drift 6s ease-in-out infinite;transform-origin:55% 70%;will-change:transform}
+.stationery-visual .paper-stack{animation:paper-fan 7s ease-in-out infinite;transform-origin:50% 90%}
+.stationery-visual .pencil{animation:pencil-rock 5s ease-in-out infinite;transform-origin:50% 50%}
+.stationery-visual .paperclip{animation:clip-bounce 4.2s ease-in-out infinite}
+@keyframes notebook-drift{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-13px) rotate(-1deg)}}
+@keyframes paper-fan{0%,100%{transform:translate(0,0) rotate(0)}50%{transform:translate(8px,-10px) rotate(5deg)}}
+@keyframes pencil-rock{0%,100%{transform:rotate(-7deg) translateY(0)}50%{transform:rotate(-2deg) translateY(-7px)}}
+@keyframes clip-bounce{0%,100%{transform:translateY(0) rotate(0)}45%{transform:translateY(-9px) rotate(12deg)}}
+.gift-box{animation:gift-breathe 5s ease-in-out infinite;transform-origin:50% 80%;will-change:transform}
+.gift-tag{animation:tag-swing 4.8s ease-in-out infinite;transform-origin:top center}
+.gift-bow-left{animation:bow-left 3.5s ease-in-out infinite}
+.gift-bow-right{animation:bow-right 3.5s ease-in-out infinite}
+.gift-spark{font-size:clamp(18px,2vw,28px);animation:letter-drift 4.8s ease-in-out infinite}
+.gift-spark.spark-two{animation-delay:-2.1s}
+@keyframes gift-breathe{0%,100%{transform:translateY(0) rotate(-2deg)}50%{transform:translateY(-12px) rotate(2deg)}}
+@keyframes tag-swing{0%,100%{transform:rotate(8deg)}50%{transform:rotate(-5deg)}}
+@keyframes bow-left{0%,100%{transform:rotate(-7deg)}50%{transform:rotate(-17deg)}}
+@keyframes bow-right{0%,100%{transform:rotate(7deg)}50%{transform:rotate(17deg)}}
+@keyframes letter-drift{0%,100%{transform:translateY(0) rotate(-8deg) scale(1)}50%{transform:translateY(-15px) rotate(9deg) scale(1.12)}}
+
+/* A bold, memorable final scene */
+.visit-finale{min-height: min(900px,100svh);padding:clamp(90px,12vw,170px) 7vw clamp(80px,10vw,130px);display:grid;place-items:center;isolation:isolate;background:var(--cream);overflow:hidden}
+.visit-finale:before{content:"";position:absolute;z-index:-2;width:min(82vw,900px);aspect-ratio:1;border-radius:50%;background:var(--pink);opacity:.42;left:50%;top:50%;transform:translate(-50%,-50%) scale(.72);animation:finale-pulse 9s ease-in-out infinite}
+.visit-finale:after{content:"";position:absolute;z-index:-1;inset:5% 3%;border:1px solid #ad887566;pointer-events:none}
+@keyframes finale-pulse{0%,100%{transform:translate(-50%,-50%) scale(.72)}50%{transform:translate(-50%,-50%) scale(.9)}}
+.finale-inner{position:relative;z-index:2;text-align:center;width:min(100%,900px);margin:auto}
+.finale-overline{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--brown);margin:28px 0 18px}
+.visit-finale h2{font-size:clamp(76px,15vw,190px);line-height:.72;letter-spacing:-.085em;margin:0 auto 35px;color:var(--ink);font-weight:500}
+.visit-finale h2 em{font-weight:400;color:var(--brown);display:inline-block;padding:0 .08em .14em;animation:hello-sway 5.5s ease-in-out infinite}
+@keyframes hello-sway{0%,100%{transform:rotate(-3deg) translateY(0)}50%{transform:rotate(2deg) translateY(-8px)}}
+.visit-finale p{font-size:clamp(17px,2vw,23px);color:var(--brown);margin:22px 0 34px}
+.finale-button{display:inline-flex;align-items:center;gap:35px;padding:18px 24px;border:1px solid var(--brown);color:var(--ink);text-decoration:none;text-transform:uppercase;letter-spacing:.13em;font-size:10px;transition:background .35s,color .35s,transform .35s;position:relative;overflow:hidden}
+.finale-button b{font-size:20px;font-weight:400;transition:transform .35s}
+.finale-button:hover{background:var(--ink);color:var(--cream);transform:translateY(-5px)}
+.finale-button:hover b{transform:translate(4px,-4px)}
+.finale-signoff{margin-top:65px;font:italic 16px var(--serif);color:var(--brown)}
+.finale-signoff span{display:inline-block;margin-left:8px;animation:letter-drift 3.5s ease-in-out infinite}
+.finale-confetti{position:absolute;inset:0;pointer-events:none;z-index:1}
+.finale-letter{position:absolute;display:block;font-size:clamp(28px,4vw,54px);filter:drop-shadow(0 10px 12px #49372f20);animation:finale-float 7s ease-in-out infinite}
+.letter-a{left:10%;top:18%;transform:rotate(-18deg)}
+.letter-b{right:13%;top:22%;font-size:clamp(42px,6vw,76px);color:var(--brown);animation-delay:-2s}
+.letter-c{left:16%;bottom:17%;font-size:clamp(35px,5vw,65px);animation-delay:-4s}
+.letter-d{right:10%;bottom:14%;animation-delay:-1s}
+.finale-stamp{position:absolute;right:19%;top:10%;font-size:8px;line-height:1.5;letter-spacing:.17em;text-align:center;color:var(--brown);border:1px solid var(--brown);padding:9px 12px;transform:rotate(12deg);animation:stamp-tilt 6s ease-in-out infinite}
+@keyframes finale-float{0%,100%{translate:0 0;rotate:-8deg}50%{translate:0 -22px;rotate:8deg}}
+@keyframes stamp-tilt{0%,100%{transform:rotate(12deg)}50%{transform:rotate(5deg) translateY(-8px)}}
+@media(max-width:760px){
+ .visit-finale{min-height:780px;padding:100px 7vw 85px}
+ .visit-finale:after{inset:3% 4%}
+ .visit-finale h2{font-size:clamp(76px,18vw,130px);line-height:.78}
+ .finale-overline{font-size:8px;letter-spacing:.16em}
+ .finale-signoff{margin-top:52px;font-size:14px}
+ .letter-a{left:5%;top:14%}.letter-b{right:6%;top:20%}
+ .letter-c{left:6%;bottom:12%}.letter-d{right:5%;bottom:11%}
+ .finale-stamp{right:13%;top:8%;font-size:7px}
+}
+@media(prefers-reduced-motion:reduce){
+ .stationery-visual .notebook,.stationery-visual .paper-stack,.stationery-visual .pencil,.stationery-visual .paperclip,.gift-box,.gift-tag,.gift-bow-left,.gift-bow-right,.gift-spark,.visit-finale:before,.visit-finale h2 em,.finale-letter,.finale-stamp,.finale-signoff span{animation:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -497,7 +560,7 @@ footer{padding-top:80px}
 <section class="content" id="colecciones"><div class="heading reveal"><div><div class="eyebrow">objetos para querer</div><h2>colecciones.</h2></div></div><div class="grid">
 <article class="item reveal"><div class="itemvisual"><span class="item-number">01 / 03</span><div class="collection-photo collection-postcard"><img src="postal-madrid-01.jpg" alt="Postal ilustrada de Madrid"></div><span class="item-scribble">send a little joy</span></div><div class="itemlabel"><h3>Postales</h3><span>↗</span></div></article>
 <article class="item reveal"><div class="itemvisual stationery-visual"><span class="item-number">02 / 03</span><div class="stationery-stilllife" aria-hidden="true"><div class="notebook"><span></span><i></i><b></b></div><div class="paper-stack"><i></i><i></i><i></i></div><div class="pencil"></div><div class="paperclip"></div></div><span class="item-scribble">made for your desk</span></div><div class="itemlabel"><h3>Papelería</h3><span>↗</span></div></article>
-<article class="item reveal"><div class="itemvisual gift-visual"><span class="item-number">03 / 03</span><div class="gift-stilllife" aria-hidden="true"><div class="gift-box"><i class="gift-ribbon-v"></i><i class="gift-ribbon-h"></i><i class="gift-bow gift-bow-left"></i><i class="gift-bow gift-bow-right"></i></div><div class="gift-tag">for you<br>with love</div><div class="gift-spark spark-one">✳</div><div class="gift-spark spark-two">✳</div></div><span class="item-scribble">a gift to keep</span></div><div class="itemlabel"><h3>Pequeños regalos</h3><span>↗</span></div></article>
+<article class="item reveal"><div class="itemvisual gift-visual"><span class="item-number">03 / 03</span><div class="gift-stilllife" aria-hidden="true"><div class="gift-box"><i class="gift-ribbon-v"></i><i class="gift-ribbon-h"></i><i class="gift-bow gift-bow-left"></i><i class="gift-bow gift-bow-right"></i></div><div class="gift-tag">for you<br>with love</div><div class="gift-spark spark-one">💌</div><div class="gift-spark spark-two">💌</div></div><span class="item-scribble">a gift to keep</span></div><div class="itemlabel"><h3>Pequeños regalos</h3><span>↗</span></div></article>
 </div></section>
 
 
@@ -543,11 +606,24 @@ footer{padding-top:80px}
 </div><div class="storycopy reveal"><div class="eyebrow">hecho para guardar momentos</div><h2>pequeños detalles.<br><em>grandes recuerdos.</em></h2></div></section>
 
 
-<section class="visit" id="visitanos">
-  <div class="visit-eyebrow">madrid · próximamente</div>
-  <h2>come say <em style="color:var(--brown)">hello.</em></h2>
-  <p>nos vemos muy pronto.</p>
-  <a class="button" href="https://www.instagram.com/postellapaper/" target="_blank" rel="noreferrer">síguenos en instagram <span>↗</span></a>
+<section class="visit visit-finale" id="visitanos">
+  <div class="finale-confetti" aria-hidden="true">
+    <span class="finale-letter letter-a">💌</span>
+    <span class="finale-letter letter-b">♡</span>
+    <span class="finale-letter letter-c">✉</span>
+    <span class="finale-letter letter-d">💌</span>
+    <span class="finale-stamp">MADRID<br>POSTAL CLUB</span>
+  </div>
+  <div class="finale-inner">
+    <div class="visit-eyebrow">madrid · próximamente</div>
+    <div class="finale-overline">una tienda llena de pequeñas historias</div>
+    <h2>come say<br><em>hello.</em></h2>
+    <p>te guardamos un sitio.</p>
+    <a class="finale-button" href="https://www.instagram.com/postellapaper/" target="_blank" rel="noreferrer">
+      <span>entra en nuestro mundo</span><b aria-hidden="true">↗</b>
+    </a>
+    <div class="finale-signoff">de madrid al mundo, tus postales <span>💌</span></div>
+  </div>
 </section>
 </main>
 <footer><div class="foot"><div><div class="footlogo"><img src="postella-logo.png" alt="postella"></div><div style="font:italic 16px var(--serif)">with love, always.</div></div><div class="footquote">“Some things are too lovely not to share.”</div><div class="footlinks"><a href="#colecciones">colecciones</a><a href="#historia">sobre nosotros</a><a href="mailto:hi@postellapaper.com">contacto</a></div></div><div class="legal"><span>© 2026 postella</span><span>made of little moments ♡</span></div></footer>
