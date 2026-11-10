@@ -727,11 +727,13 @@ footer{padding-top:80px}
 /* POSTELLA IMMERSIVE EXPERIENCE — cinematic arrival, tactile cursor & 3D paper */
 :root{--cursor-x:-100px;--cursor-y:-100px}
 @media(hover:hover) and (pointer:fine){body,body a,body button{cursor:none!important} .postella-cursor{display:block}}
-.postella-cursor{display:none;position:fixed;left:0;top:0;width:34px;height:34px;border:1px solid var(--brown);border-radius:50%;pointer-events:none;z-index:10002;transform:translate3d(var(--cursor-x),var(--cursor-y),0) translate(-50%,-50%);transition:width .28s,height .28s,background .28s,border-color .28s;mix-blend-mode:multiply}
-.postella-cursor:before{content:'✳';position:absolute;inset:0;display:grid;place-items:center;font-size:13px;color:var(--brown);transition:transform .35s}
-.postella-cursor.is-hover{width:66px;height:66px;background:var(--pink);border-color:var(--pink)}
-.postella-cursor.is-hover:before{transform:rotate(45deg) scale(1.2);color:var(--ink)}
-.postella-cursor.is-press{width:24px;height:24px;background:#ad887566}
+/* custom cursor: tiny postella letter */
+.postella-cursor{display:none;position:fixed;left:0;top:0;width:30px;height:22px;background:#fffaf4;border:1.5px solid #e8a8b8;border-radius:4px;box-shadow:0 3px 10px #68483b24;pointer-events:none;z-index:10002;transform:translate3d(var(--cursor-x),var(--cursor-y),0) translate(-50%,-50%) rotate(-7deg);transition:transform .22s cubic-bezier(.2,.8,.2,1),width .22s,height .22s,background .22s,border-color .22s;mix-blend-mode:normal}
+.postella-cursor:before{content:'';position:absolute;left:1px;right:1px;top:1px;height:11px;background:#f2b0be;clip-path:polygon(0 0,50% 100%,100% 0);opacity:.95}
+.postella-cursor:after{content:'♡';position:absolute;inset:0;display:grid;place-items:center;padding-top:5px;font-family:Georgia,serif;font-size:10px;line-height:1;color:#ad8875}
+.postella-cursor.is-hover{width:36px;height:26px;background:#fffaf4;border-color:#e58da5;transform:translate3d(var(--cursor-x),var(--cursor-y),0) translate(-50%,-50%) rotate(5deg) scale(1.12)}
+.postella-cursor.is-hover:after{content:'♥';color:#e58da5}
+.postella-cursor.is-press{transform:translate3d(var(--cursor-x),var(--cursor-y),0) translate(-50%,-50%) scale(.88)}
 .postella-intro{position:fixed;inset:0;z-index:10001;background:var(--cream);display:grid;place-items:center;overflow:hidden;transition:opacity .42s cubic-bezier(.7,0,.2,1),visibility .42s}
 .postella-intro.is-leaving{opacity:0;visibility:hidden;pointer-events:none}
 .intro-grain{position:absolute;inset:0;opacity:.13;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.25'/%3E%3C/svg%3E");pointer-events:none}
