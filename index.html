@@ -10,11 +10,10 @@
 :root{--cream:#eeeae7;--pink:#f2b0be;--brown:#ad8875;--ink:#49372f;--white:#fffdfb;--serif:"Playfair Display",Georgia,serif;--sans:"DM Sans",Arial,sans-serif}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--cream);color:var(--ink);font-family:var(--sans);overflow-x:hidden}a{color:inherit;text-decoration:none}
 .announce{background:var(--brown);color:white;text-align:center;padding:10px;font-size:10px;letter-spacing:.2em;text-transform:uppercase}
-.announcement.ticker-announcement{background:var(--brown);color:#fffaf6;padding:9px 0;overflow:hidden;white-space:nowrap;font-size:10px;letter-spacing:.14em;text-transform:uppercase}
-.announcement-track{display:flex;width:max-content;animation:announcement-marquee 34s linear infinite}
-.announcement-track span{padding:0 34px;flex:none}
-@keyframes announcement-marquee{to{transform:translateX(-50%)}}
-@media(prefers-reduced-motion:reduce){.announcement-track{animation:none}}
+.announcement.ticker-announcement{background:var(--brown);color:#fffaf6;padding:10px 0;overflow:hidden;white-space:nowrap;font-size:9px;line-height:1.4;letter-spacing:.14em;text-transform:uppercase}
+.announcement-track{display:flex;flex-wrap:nowrap;width:max-content;will-change:transform;animation:announcement-marquee 24s linear infinite}
+.announcement-track span{display:block;flex:0 0 auto;padding:0 4vw}
+@keyframes announcement-marquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
 
 header{position:sticky;top:0;z-index:5;background:#eeeae7df;backdrop-filter:blur(14px);border-bottom:1px solid #ad887533}.nav{max-width:1250px;margin:auto;padding:18px 6vw;display:flex;justify-content:space-between;align-items:center}.logo{display:inline-flex;align-items:center}.logo img{display:block;width:170px;height:auto;max-height:54px;object-fit:contain}.links{display:flex;gap:28px;font-size:10px;letter-spacing:.14em;text-transform:uppercase}.links a:hover{color:var(--brown)}.menu{display:none;border:0;background:none;font-size:24px}
 .hero{min-height:660px;max-width:1400px;margin:auto;padding:80px 7vw;display:grid;grid-template-columns:1fr 1fr;align-items:center;gap:30px}.eyebrow{font-size:10px;text-transform:uppercase;letter-spacing:.23em;color:var(--brown)}h1{font:600 clamp(60px,8vw,112px)/.93 var(--serif);letter-spacing:-.07em;margin:24px 0}.hero h1 em,.story h2 em{color:var(--brown)}.intro{max-width:420px;color:#79665c;font-size:14px;line-height:1.9}.button{display:inline-flex;gap:24px;align-items:center;border:1px solid var(--brown);border-radius:40px;padding:15px 20px;margin-top:25px;font-size:10px;letter-spacing:.14em;text-transform:uppercase;transition:.3s}.button:hover{background:var(--brown);color:white;transform:translateY(-3px)}
@@ -726,7 +725,7 @@ footer{padding-top:80px}
 
 /* POSTELLA IMMERSIVE EXPERIENCE — cinematic arrival, tactile cursor & 3D paper */
 :root{--cursor-x:-100px;--cursor-y:-100px}
-@media(hover:hover) and (pointer:fine){body,body a,body button{cursor:none!important} .postella-cursor{display:block}}
+@media(hover:hover) and (pointer:fine){body,body a,body button{cursor:none!important} .postella-cursor{display:block!important;visibility:visible!important;opacity:1!important}}
 /* custom cursor: tiny postella letter */
 .postella-cursor{display:none;position:fixed;left:0;top:0;width:30px;height:22px;background:#fffaf4;border:1.5px solid #e8a8b8;border-radius:4px;box-shadow:0 3px 10px #68483b24;pointer-events:none;z-index:10002;transform:translate3d(var(--cursor-x),var(--cursor-y),0) translate(-50%,-50%) rotate(-7deg);transition:transform .22s cubic-bezier(.2,.8,.2,1),width .22s,height .22s,background .22s,border-color .22s;mix-blend-mode:normal}
 .postella-cursor:before{content:'';position:absolute;left:1px;right:1px;top:1px;height:11px;background:#f2b0be;clip-path:polygon(0 0,50% 100%,100% 0);opacity:.95}
@@ -761,8 +760,8 @@ footer{padding-top:80px}
 .postcard-photo:hover{box-shadow:0 42px 85px #49372f35;filter:saturate(1.06)}
 .itemvisual{perspective:1100px}
 .collection-photo,.stationery-stilllife,.gift-stilllife{transform-style:preserve-3d;will-change:transform}
-@media(max-width:760px){.postella-intro{min-height:100svh}.intro-envelope{width:min(72vw,280px)}.intro-letter img{width:58%;transform:none}.intro-skip{right:14px;bottom:12px}.postella-cursor{display:none!important}}
-@media(prefers-reduced-motion:reduce){.postella-intro *,.intro-envelope,.intro-letter,.intro-flap,.intro-seal,.intro-wordmark,.intro-caption{animation:none!important}.postella-intro{transition:none}.postella-cursor{display:none!important}.postcard-photo:after{display:none}}
+@media(max-width:760px){.postella-intro{min-height:100svh}.intro-envelope{width:min(72vw,280px)}.intro-letter img{width:58%;transform:none}.intro-skip{right:14px;bottom:12px}}
+@media(prefers-reduced-motion:reduce){.postella-intro *,.intro-envelope,.intro-letter,.intro-flap,.intro-seal,.intro-wordmark,.intro-caption{animation:none!important}.postella-intro{transition:none}.postcard-photo:after{display:none}}
 
 
 
@@ -1203,6 +1202,12 @@ footer{padding-top:80px}
 .newsletter-form-area .ml-form-embedSubmit button.loading,
 .newsletter-form-area .ml-form-embedSubmit button[disabled] { display:none !important; }
 .newsletter-form-area .ml-form-embedSubmit button.primary { display:flex !important; }
+
+/* Continuous top announcement: never pause or freeze the promotional message. */
+.announcement.ticker-announcement{display:block;overflow:hidden;white-space:nowrap}
+.announcement.ticker-announcement .announcement-track{display:flex!important;flex-wrap:nowrap!important;width:max-content!important;animation:announcement-marquee 24s linear infinite!important;animation-play-state:running!important;will-change:transform}
+.announcement.ticker-announcement .announcement-track span{display:block;flex:0 0 auto;white-space:nowrap}
+@keyframes announcement-marquee{from{transform:translate3d(0,0,0)}to{transform:translate3d(-50%,0,0)}}
 </style>
 
 <section class="postscript newsletter-postscript" id="newsletter">
@@ -1406,7 +1411,7 @@ if(window.matchMedia('(hover:hover) and (pointer:fine)').matches &&
  const reduced=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
  if(intro){if(reduced){finish()}else{setTimeout(finish,1120)}}
  const cursor=document.querySelector('.postella-cursor');
- if(cursor&&window.matchMedia('(hover:hover) and (pointer:fine)').matches&&!reduced){
+ if(cursor&&window.matchMedia('(hover:hover) and (pointer:fine)').matches){
   let x=-100,y=-100,tx=-100,ty=-100,raf=0;
   const move=e=>{tx=e.clientX;ty=e.clientY;if(!raf)raf=requestAnimationFrame(draw)};
   function draw(){x+=(tx-x)*.24;y+=(ty-y)*.24;cursor.style.setProperty('--cursor-x',x+'px');cursor.style.setProperty('--cursor-y',y+'px');if(Math.abs(tx-x)+Math.abs(ty-y)>.2)raf=requestAnimationFrame(draw);else raf=0}
