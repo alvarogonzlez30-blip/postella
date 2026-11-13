@@ -1095,6 +1095,29 @@ footer{padding-top:80px}
 @media(prefers-reduced-motion:reduce){.newsletter-paper-wrap{animation:none!important}}
 
 </style>
+
+<style>
+/* THE POSTCARD WALL — interactive gallery */
+#postcard-wall{padding:112px 6vw 120px;background:#f7f1e8;position:relative;overflow:hidden}
+.wall-wrap{max-width:1320px;margin:auto}.wall-top{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:end;margin-bottom:34px}
+.wall-kicker{font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:var(--brown)}
+.wall-title{font:600 clamp(48px,7vw,92px)/.94 var(--serif);letter-spacing:-.065em;margin:16px 0 12px}.wall-title em{color:var(--brown)}
+.wall-subtitle{max-width:510px;color:#79665c;font:14px/1.9 var(--sans);margin:0}
+.wall-stamp{width:112px;height:112px;border:1px dashed #ad8875;border-radius:50%;display:grid;place-items:center;text-align:center;color:#ad8875;font:italic 14px/1.35 var(--serif);transform:rotate(9deg);position:relative}
+.wall-stamp:after{content:"✳";position:absolute;bottom:-12px;right:-10px;font-size:27px;color:#f2b0be}
+.wall-controls{display:flex;align-items:center;justify-content:space-between;gap:18px;margin:34px 0 25px;flex-wrap:wrap}
+.wall-filters{display:flex;gap:8px;flex-wrap:wrap}.wall-filter{border:1px solid #ad887544;background:#fffaf5;color:#5b463c;padding:10px 16px;border-radius:30px;font:11px var(--sans);cursor:pointer;transition:.25s}
+.wall-filter:hover,.wall-filter.active{background:#ad8875;color:#fffaf6;border-color:#ad8875}.wall-tools{display:flex;gap:10px;align-items:center}.wall-search{border:1px solid #ad887566;background:#fffaf5;border-radius:30px;padding:10px 15px;width:190px;font:11px var(--sans);color:var(--ink);outline:none}.wall-search:focus{border-color:#ad8875}
+.wall-count{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#987e70;white-space:nowrap}
+.wall-layout{display:grid;grid-template-columns:170px 1fr;gap:28px;align-items:start}.wall-sidebar{border-top:1px solid #ad887544;padding-top:18px;position:sticky;top:115px}.wall-sidebar h3{font:italic 21px var(--serif);margin:0 0 14px}.wall-sidebar p{font:12px/1.8 var(--serif);color:#8c7669}.wall-side-note{margin-top:38px;padding-top:17px;border-top:1px solid #ad887544;font:italic 15px/1.6 var(--serif);color:#ad8875}
+.wall-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:25px 20px}.wall-card{min-width:0;cursor:pointer;position:relative;outline:none}.wall-card[hidden]{display:none}.wall-art{height:clamp(230px,26vw,350px);background:#e9ddd3;display:grid;place-items:center;position:relative;overflow:hidden;padding:22px;transition:background .35s}.wall-card:nth-child(3n+2) .wall-art{background:#ead1d1}.wall-card:nth-child(3n) .wall-art{background:#e6d8c8}.wall-paper{width:72%;height:90%;background:#fffdf9;padding:8px 8px 24px;box-shadow:0 18px 38px #49372f2c;transform:rotate(-4deg);transition:transform .5s,box-shadow .5s;position:relative}.wall-card:nth-child(even) .wall-paper{transform:rotate(4deg)}.wall-paper img{width:100%;height:100%;object-fit:cover;display:block}.wall-paper.mascot-paper{padding:4px;background:#fffaf5}.wall-paper.mascot-paper img{object-fit:contain}.wall-card:hover .wall-paper,.wall-card:focus-visible .wall-paper{transform:rotate(0) translateY(-8px) scale(1.025);box-shadow:0 26px 45px #49372f35}
+.wall-tape{position:absolute;z-index:2;top:13px;left:50%;width:54px;height:16px;background:#e9cda8bb;transform:translateX(-50%) rotate(-4deg);box-shadow:0 2px 4px #49372f12}.wall-heart{position:absolute;right:13px;top:13px;width:34px;height:34px;border:0;border-radius:50%;background:#fffaf0df;color:#ad8875;font-size:18px;cursor:pointer;z-index:3}.wall-heart.is-saved{background:#ad8875;color:white}.wall-card-meta{display:flex;justify-content:space-between;gap:10px;padding:13px 2px 0;border-bottom:1px solid #ad887533;padding-bottom:13px}.wall-card-meta h3{font:italic 19px var(--serif);margin:0 0 4px}.wall-card-meta p{font:9px var(--sans);letter-spacing:.12em;text-transform:uppercase;color:#987e70;margin:0}.wall-open{font-size:19px;color:#ad8875;align-self:center}.wall-empty{display:none;grid-column:1/-1;text-align:center;padding:70px 20px;color:#8a7568;font:italic 20px var(--serif)}
+.wall-modal{position:fixed;inset:0;z-index:100;display:none;place-items:center;padding:24px;background:#30241f88;backdrop-filter:blur(7px)}.wall-modal.open{display:grid}.wall-modal-card{width:min(850px,100%);background:#f8f1e9;display:grid;grid-template-columns:1fr 1fr;position:relative;box-shadow:0 30px 100px #20171355;max-height:90vh;overflow:auto}.wall-modal-visual{background:#eadbd1;min-height:470px;display:grid;place-items:center;padding:45px}.wall-modal-visual img{width:min(100%,340px);max-height:390px;object-fit:contain;box-shadow:0 22px 45px #49372f30}.wall-modal-copy{padding:65px 42px;display:flex;flex-direction:column;justify-content:center}.wall-modal-copy .wall-kicker{margin-bottom:18px}.wall-modal-copy h3{font:italic 40px/1.05 var(--serif);margin:0 0 14px}.wall-modal-copy p{font:13px/1.9 var(--sans);color:#78665c}.wall-modal-close{position:absolute;right:16px;top:13px;border:0;background:none;font-size:27px;color:#49372f;cursor:pointer}.wall-modal-note{margin-top:20px;padding:15px 0;border-top:1px solid #ad887544;border-bottom:1px solid #ad887544;font:italic 15px var(--serif);color:#ad8875}
+@media(max-width:900px){.wall-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.wall-layout{grid-template-columns:130px 1fr}.wall-modal-visual{min-height:380px}}
+@media(max-width:620px){#postcard-wall{padding:78px 6vw}.wall-top{grid-template-columns:1fr}.wall-stamp{display:none}.wall-controls{align-items:flex-start}.wall-tools{width:100%;justify-content:space-between}.wall-search{flex:1}.wall-layout{grid-template-columns:1fr}.wall-sidebar{position:static;display:flex;align-items:center;gap:12px;padding:12px 0}.wall-sidebar h3{margin:0}.wall-sidebar p,.wall-side-note{display:none}.wall-grid{gap:20px 12px}.wall-art{height:clamp(190px,58vw,290px);padding:14px}.wall-paper{width:78%;height:88%}.wall-card-meta h3{font-size:16px}.wall-modal-card{grid-template-columns:1fr;max-height:88vh}.wall-modal-visual{min-height:280px;padding:28px}.wall-modal-visual img{max-height:260px;width:auto;max-width:80%}.wall-modal-copy{padding:28px 25px 35px}.wall-modal-copy h3{font-size:32px}}
+@media(prefers-reduced-motion:reduce){.wall-paper,.wall-filter{transition:none}}
+</style>
+
 </head>
 <body>
 <div class="postella-intro" id="postellaIntro" aria-label="Bienvenido a postella" role="dialog" aria-modal="true">
@@ -1110,7 +1133,7 @@ footer{padding-top:80px}
 
 <div class="scroll-progress" aria-hidden="true"><span></span></div>
 <div class="announcement ticker-announcement"><div class="announcement-track"><span>Rellena el formulario y consigue un descuento exclusivo en nuestra apertura 💌</span><span>Rellena el formulario y consigue un descuento exclusivo en nuestra apertura 💌</span></div></div>
-<header><nav class="nav"><a class="logo" href="#inicio" aria-label="Postella, inicio"><img src="postella-logo.png" alt="postella"></a><button class="menu" aria-label="Abrir menú">☰</button><div class="links"><a href="#colecciones">colecciones</a><a href="#historia">sobre postella</a><a href="#visitanos">visítanos</a><a href="#formulario">formulario</a><a href="#newsletter">newsletter 💌</a><a href="mailto:hi@postellapaper.com">contacto ↗</a></div></nav></header>
+<header><nav class="nav"><a class="logo" href="#inicio" aria-label="Postella, inicio"><img src="postella-logo.png" alt="postella"></a><button class="menu" aria-label="Abrir menú">☰</button><div class="links"><a href="#colecciones">colecciones</a><a href="#postcard-wall">the postcard wall</a><a href="#historia">sobre postella</a><a href="#visitanos">visítanos</a><a href="#formulario">formulario</a><a href="#newsletter">newsletter 💌</a><a href="mailto:hi@postellapaper.com">contacto ↗</a></div></nav></header>
 <main>
 <section class="hero" id="inicio"><div class="reveal"><h1>no todo cabe<br><em>en un mensaje.</em></h1></div>
 <div class="art reveal" data-parallax>
@@ -1152,6 +1175,22 @@ footer{padding-top:80px}
 <article class="item reveal"><div class="itemvisual gift-visual"><span class="item-number">03 / 03</span><div class="gift-stilllife" aria-hidden="true"><div class="gift-box"><i class="gift-ribbon-v"></i><i class="gift-ribbon-h"></i><i class="gift-bow gift-bow-left"></i><i class="gift-bow gift-bow-right"></i></div><div class="gift-tag">for you<br>with love</div><div class="gift-spark spark-one">💌</div><div class="gift-spark spark-two">💌</div></div><span class="item-scribble">a gift to keep</span></div><div class="itemlabel"><h3>Pequeños regalos</h3><span>↗</span></div></article>
 </div></section>
 
+<section id="postcard-wall" aria-labelledby="wall-heading">
+ <div class="wall-wrap">
+  <div class="wall-top reveal"><div><div class="wall-kicker">postella · a little gallery of paper things</div><h2 class="wall-title" id="wall-heading">the postcard <em>wall.</em></h2><p class="wall-subtitle">Every postcard has a story. Descubre nuestras ilustraciones, pequeños universos de papel hechos para enviar, regalar o guardar.</p></div><div class="wall-stamp">a little piece<br>of postella<br>♡</div></div>
+  <div class="wall-controls"><div class="wall-filters" role="group" aria-label="Filtrar postales"><button class="wall-filter active" data-wall-filter="all">Todas</button><button class="wall-filter" data-wall-filter="madrid">Madrid</button><button class="wall-filter" data-wall-filter="illustration">Ilustraciones</button><button class="wall-filter" data-wall-filter="brand">Universo postella</button></div><div class="wall-tools"><input class="wall-search" id="wall-search" type="search" placeholder="Buscar una postal…" aria-label="Buscar una postal"><span class="wall-count" id="wall-count">04 piezas</span></div></div>
+  <div class="wall-layout"><aside class="wall-sidebar"><h3>la colección</h3><p>Una selección de piezas ilustradas y pequeños detalles del universo postella.</p><div class="wall-side-note">“las cosas bonitas merecen quedarse.”</div></aside>
+   <div class="wall-grid" id="wall-grid">
+    <article class="wall-card" tabindex="0" role="button" data-category="madrid" data-title="Postal Madrid 01" data-sub="Colección Madrid" data-img="postal-madrid-01.jpg" data-desc="Una ilustración de Madrid perteneciente a las primeras piezas visuales de postella."><div class="wall-art"><span class="wall-tape"></span><button class="wall-heart" aria-label="Guardar en favoritos" aria-pressed="false">♡</button><div class="wall-paper"><img src="postal-madrid-01.jpg" alt="Postal ilustrada de Madrid, primera vista"></div></div><div class="wall-card-meta"><div><h3>Postal Madrid 01</h3><p>Colección Madrid</p></div><span class="wall-open">↗</span></div></article>
+    <article class="wall-card" tabindex="0" role="button" data-category="madrid" data-title="Postal Madrid 02" data-sub="Colección Madrid" data-img="postal-madrid-02.jpg" data-desc="Una segunda ilustración de la colección inspirada en Madrid."><div class="wall-art"><span class="wall-tape"></span><button class="wall-heart" aria-label="Guardar en favoritos" aria-pressed="false">♡</button><div class="wall-paper"><img src="postal-madrid-02.jpg" alt="Postal ilustrada de Madrid, segunda vista"></div></div><div class="wall-card-meta"><div><h3>Postal Madrid 02</h3><p>Colección Madrid</p></div><span class="wall-open">↗</span></div></article>
+    <article class="wall-card" tabindex="0" role="button" data-category="brand illustration" data-title="Chupi, un pequeño descanso" data-sub="Universo postella" data-img="mascota-cafe.png" data-desc="Chupi forma parte del universo ilustrado de postella. Una pequeña pausa para disfrutar de las cosas bonitas."><div class="wall-art"><span class="wall-tape"></span><button class="wall-heart" aria-label="Guardar en favoritos" aria-pressed="false">♡</button><div class="wall-paper mascot-paper"><img src="mascota-cafe.png" alt="Chupi sosteniendo una taza"></div></div><div class="wall-card-meta"><div><h3>Un pequeño descanso</h3><p>Universo postella</p></div><span class="wall-open">↗</span></div></article>
+    <article class="wall-card" tabindex="0" role="button" data-category="brand illustration" data-title="Conoce a Chupi" data-sub="Universo postella" data-img="mascota-postella.png" data-desc="Nuestro pequeño personaje ilustrado, parte de la identidad visual de postella."><div class="wall-art"><span class="wall-tape"></span><button class="wall-heart" aria-label="Guardar en favoritos" aria-pressed="false">♡</button><div class="wall-paper mascot-paper"><img src="mascota-postella.png" alt="Ilustración de Chupi, personaje de postella"></div></div><div class="wall-card-meta"><div><h3>Conoce a Chupi</h3><p>Universo postella</p></div><span class="wall-open">↗</span></div></article>
+    <div class="wall-empty" id="wall-empty">No hemos encontrado ninguna postal. Prueba con otra búsqueda ♡</div>
+   </div>
+  </div>
+ </div>
+</section>
+<div class="wall-modal" id="wall-modal" role="dialog" aria-modal="true" aria-labelledby="wall-modal-title"><div class="wall-modal-card"><button class="wall-modal-close" aria-label="Cerrar">×</button><div class="wall-modal-visual"><img id="wall-modal-img" src="postal-madrid-01.jpg" alt=""></div><div class="wall-modal-copy"><div class="wall-kicker" id="wall-modal-sub">colección</div><h3 id="wall-modal-title">Postal</h3><p id="wall-modal-desc"></p><div class="wall-modal-note">Una pequeña pieza del universo postella. Muy pronto, disponible para llevar contigo.</div></div></div></div>
 
 <section class="mail-scene" id="una-postal">
   <div class="mail-scene-sticky">
@@ -1293,7 +1332,7 @@ footer{padding-top:80px}
   </div>
 </section>
 </main>
-<footer><div class="foot"><div><div class="footlogo"><img src="postella-logo.png" alt="postella"></div><div style="font:italic 16px var(--serif)">with love, always.</div></div><div class="footquote">“Some things are too lovely not to share.”</div><div class="footlinks"><a href="#colecciones">colecciones</a><a href="#historia">sobre nosotros</a><a href="#newsletter">newsletter 💌</a><a href="mailto:hi@postellapaper.com">contacto</a></div></div><div class="legal"><span>© 2026 postella</span><span>made of little moments ♡</span></div></footer>
+<footer><div class="foot"><div><div class="footlogo"><img src="postella-logo.png" alt="postella"></div><div style="font:italic 16px var(--serif)">with love, always.</div></div><div class="footquote">“Some things are too lovely not to share.”</div><div class="footlinks"><a href="#colecciones">colecciones</a><a href="#postcard-wall">the postcard wall</a><a href="#historia">sobre nosotros</a><a href="#newsletter">newsletter 💌</a><a href="mailto:hi@postellapaper.com">contacto</a></div></div><div class="legal"><span>© 2026 postella</span><span>made of little moments ♡</span></div></footer>
 <script>
 const btn=document.querySelector('.menu'),links=document.querySelector('.links');
 if(btn && links){
@@ -1432,6 +1471,23 @@ if(window.matchMedia('(hover:hover) and (pointer:fine)').matches &&
    surface.addEventListener('pointerleave',()=>{object.style.transform=''});
   });
  }
+})();
+
+
+// The Postcard Wall: live filtering, search, favorites and detail modal.
+(()=>{
+ const grid=document.getElementById('wall-grid');if(!grid)return;
+ const cards=[...grid.querySelectorAll('.wall-card')],filters=[...document.querySelectorAll('[data-wall-filter]')],search=document.getElementById('wall-search'),count=document.getElementById('wall-count'),empty=document.getElementById('wall-empty');
+ let active='all';
+ const update=()=>{const q=(search?.value||'').trim().toLocaleLowerCase('es');let shown=0;cards.forEach(card=>{const cats=card.dataset.category.split(' '),matchesCat=active==='all'||cats.includes(active),matchesText=(card.dataset.title+' '+card.dataset.sub+' '+card.dataset.desc).toLocaleLowerCase('es').includes(q),visible=matchesCat&&matchesText;card.hidden=!visible;if(visible)shown++});count.textContent=String(shown).padStart(2,'0')+' piezas';empty.style.display=shown?'none':'block'};
+ filters.forEach(btn=>btn.addEventListener('click',()=>{filters.forEach(x=>x.classList.toggle('active',x===btn));active=btn.dataset.wallFilter;update()}));search?.addEventListener('input',update);
+ const modal=document.getElementById('wall-modal'),modalImg=document.getElementById('wall-modal-img'),modalTitle=document.getElementById('wall-modal-title'),modalSub=document.getElementById('wall-modal-sub'),modalDesc=document.getElementById('wall-modal-desc');
+ const close=()=>{modal.classList.remove('open');document.body.style.overflow=''};
+ const open=card=>{modalImg.src=card.dataset.img;modalImg.alt=card.dataset.title;modalTitle.textContent=card.dataset.title;modalSub.textContent=card.dataset.sub;modalDesc.textContent=card.dataset.desc;modal.classList.add('open');document.body.style.overflow='hidden'};
+ cards.forEach(card=>{card.addEventListener('click',e=>{if(e.target.closest('.wall-heart'))return;open(card)});card.addEventListener('keydown',e=>{if(e.target===card&&(e.key==='Enter'||e.key===' ')){e.preventDefault();open(card)}})});
+ modal.querySelector('.wall-modal-close').addEventListener('click',close);modal.addEventListener('click',e=>{if(e.target===modal)close()});document.addEventListener('keydown',e=>{if(e.key==='Escape'&&modal.classList.contains('open'))close()});
+ document.querySelectorAll('.wall-heart').forEach(btn=>btn.addEventListener('click',e=>{e.stopPropagation();const saved=btn.classList.toggle('is-saved');btn.textContent=saved?'♥':'♡';btn.setAttribute('aria-pressed',String(saved));btn.setAttribute('aria-label',saved?'Quitar de favoritos':'Guardar en favoritos')}));
+ update();
 })();
 
 </script>
